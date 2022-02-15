@@ -5,17 +5,16 @@ using UnityEngine;
 public class ThirdPersonPlayer : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
-    [SerializeField] private Transform camera;   
-
-    public Transform groundCheck;
-    public LayerMask groundMask;
-    [Range(-10, -1)]
-    [SerializeField]public float gravity = -2.81f;
-    public float groundDistance = 0.2f;
-
-    [SerializeField] private float speed = 6f;
-    [SerializeField] private float jumpHeight = 3f;
+    [SerializeField] private Transform camera;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpHeight = 6f;
     [SerializeField] private float turnSmoothTime = 0.1f;
+    [SerializeField] public float gravity = -2.81f;
+
+    
+    public LayerMask groundMask;   
+    public float groundDistance = 0.4f; 
 
     private float turnSmoothVelocity;
     private Vector3 velocity;
@@ -26,6 +25,11 @@ public class ThirdPersonPlayer : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+        if (isGrounded && velocity.y < 0f)
+        {
+            velocity.y = -2f;  
+        }
+
         Cursor.lockState = CursorLockMode.Locked;                   
 
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -35,23 +39,22 @@ public class ThirdPersonPlayer : MonoBehaviour
 
         if (dir.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(dir.x, dir.y)*Mathf.Rad2Deg + camera.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(dir.x, dir.z)*Mathf.Rad2Deg + camera.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-
-            Vector3 moveDir = camera.TransformDirection(dir);
-            velocity.y += gravity;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);             
         }
-
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            controller.Move(new Vector3(0, jumpHeight, 0));
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-        Debug.Log(isGrounded);
 
-        
+        velocity.y += gravity;
+
+        controller.Move(velocity * Time.deltaTime);
+
     }
 
 }
