@@ -20,6 +20,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     float rotationSmooth = 0.1f;
     float turnSmoothVelocity;
     bool shoulderView;
+    public bool stopCamMove;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class ThirdPersonPlayer : MonoBehaviour
             shoulderView = true;
             shoulderCamera.Priority = 11;
         }
-        else if (Input.GetKeyUp(inputManager.aim))
+        else if (Input.GetKeyUp(inputManager.aim) || stopCamMove)
         {
             shoulderView = false;
             shoulderCamera.Priority = 1;
