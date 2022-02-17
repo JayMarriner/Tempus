@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerUIHandler : MonoBehaviour
 {
     [SerializeField] GameObject WeaponWheel;
+    [SerializeField] GameObject reticle;
     ThirdPersonPlayer playerScript;
     InputManager inputManager;
 
@@ -17,6 +18,15 @@ public class PlayerUIHandler : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        WeaponUI();
+        if (playerScript.shoulderView)
+            StartCoroutine(ActivateReticle());
+        if (!playerScript.shoulderView && reticle.activeSelf)
+            reticle.SetActive(false);
+    }
+
+    void WeaponUI()
     {
         if (Input.GetKeyDown(inputManager.weaponWheelToggle))
         {
@@ -31,9 +41,15 @@ public class PlayerUIHandler : MonoBehaviour
             WeaponWheel.SetActive(false);
             playerScript.stopCamMove = false;
             Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked
-                ;
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+
+
+    IEnumerator ActivateReticle()
+    {
+        yield return new WaitForSeconds(1.2f);
+        reticle.SetActive(playerScript.shoulderView);
     }
 }

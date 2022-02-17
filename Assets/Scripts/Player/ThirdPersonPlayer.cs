@@ -19,7 +19,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     Vector3 vertVel;
     float rotationSmooth = 0.1f;
     float turnSmoothVelocity;
-    bool shoulderView;
+    public bool shoulderView;
     public bool stopCamMove;
 
     private void Start()

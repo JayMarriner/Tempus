@@ -6,6 +6,7 @@ public class Teleporter : MonoBehaviour
 {
     public Vector3 targetPos;
     public bool targetSet;
+    [SerializeField] public GameObject[] cams = new GameObject[2];
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && targetSet)
@@ -14,5 +15,13 @@ public class Teleporter : MonoBehaviour
             other.gameObject.transform.position = targetPos;
             other.gameObject.GetComponent<CharacterController>().enabled = true;
         }
+    }
+
+    private void Update()
+    {
+        if (cams[0].activeSelf)
+            cams[0].transform.rotation = Camera.main.transform.rotation;
+        else if(cams[1].activeSelf)
+            cams[1].transform.rotation = Camera.main.transform.rotation;
     }
 }
