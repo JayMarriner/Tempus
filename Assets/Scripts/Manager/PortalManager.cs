@@ -12,6 +12,7 @@ public class PortalManager : MonoBehaviour
     bool pos2Set;
     GameObject portal1;
     GameObject portal2;
+
     public void AddPos(Vector3 position)
     {
         if (!pos1Set)

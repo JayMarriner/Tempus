@@ -21,6 +21,7 @@ public class PortalBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        print(collision.gameObject.name);
         portalManager.AddPos(transform.position);
         Destroy(gameObject);
     }
