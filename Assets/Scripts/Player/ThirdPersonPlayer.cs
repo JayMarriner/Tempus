@@ -5,7 +5,14 @@ using Cinemachine;
 
 public class ThirdPersonPlayer : MonoBehaviour
 {
+    [Header("Shoulder cam settings.")]
     [SerializeField] CinemachineVirtualCamera shoulderCamera;
+    [Range(1,100)]
+    [SerializeField] int shoulderHorSpeed;
+    [Range(1,100)]
+    [SerializeField] int shoulderVerSpeed;
+
+    [Header("Player settings.")]
     [Range(1, 10)]
     [SerializeField] private float jumpForce = 5f;
     [Range(1, 10)]
@@ -92,7 +99,13 @@ public class ThirdPersonPlayer : MonoBehaviour
                 //Apply movement
                 controller.Move(moveDirection * speed * Time.deltaTime);
             }
-            gameObject.transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
+            gameObject.transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * shoulderHorSpeed, 0);
+            var shoulderOffset = shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y;
+            shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y += -Input.GetAxis("Mouse Y") * Time.deltaTime * shoulderVerSpeed;
+            if (shoulderOffset > 2)
+                shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y = 2;
+            else if (shoulderOffset < -2)
+                shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y = -2;
         }
     }
 
