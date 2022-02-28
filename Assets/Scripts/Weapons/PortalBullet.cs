@@ -10,6 +10,7 @@ public class PortalBullet : Bullet
     // Start is called before the first frame update
     public override void Start()
     {
+        base.Start();
         portalManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<PortalManager>();
     }
 

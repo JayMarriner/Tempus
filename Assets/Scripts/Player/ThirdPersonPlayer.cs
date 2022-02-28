@@ -57,6 +57,11 @@ public class ThirdPersonPlayer : MonoBehaviour
     {
         //Store input as vector.
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        int sprintSpeed;
+        if (Input.GetKey(inputManager.sprint))
+            sprintSpeed = 2;
+        else
+            sprintSpeed = 1;
 
         if (!shoulderView)
         {
@@ -79,7 +84,7 @@ public class ThirdPersonPlayer : MonoBehaviour
                 Vector3 moveDirection = (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward) * movement.sqrMagnitude;
 
                 //Apply movement
-                controller.Move(moveDirection * speed * Time.deltaTime);
+                controller.Move(moveDirection * speed * sprintSpeed * Time.deltaTime);
             }
         }
         else
@@ -97,7 +102,7 @@ public class ThirdPersonPlayer : MonoBehaviour
                 Vector3 moveDirection = (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward) * movement.sqrMagnitude;
 
                 //Apply movement
-                controller.Move(moveDirection * speed * Time.deltaTime);
+                controller.Move(moveDirection * speed * sprintSpeed * Time.deltaTime);
             }
             gameObject.transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * shoulderHorSpeed, 0);
             var shoulderOffset = shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y;

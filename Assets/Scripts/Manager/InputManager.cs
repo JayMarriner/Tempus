@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     public KeyCode weaponWheelToggle;
     public KeyCode weaponSwitch1;
     public KeyCode weaponSwitch2;
+    public KeyCode sprint;
     private void Awake()
     {
         aim = KeyCode.Mouse1;
@@ -16,5 +17,6 @@ public class InputManager : MonoBehaviour
         weaponWheelToggle = KeyCode.Tab;
         weaponSwitch1 = KeyCode.Alpha1;
         weaponSwitch2 = KeyCode.Alpha2;
+        sprint = KeyCode.LeftShift;
     }
 }

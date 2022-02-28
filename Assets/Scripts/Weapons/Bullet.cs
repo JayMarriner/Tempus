@@ -9,12 +9,18 @@ public class Bullet : MonoBehaviour
     
     public virtual void Start()
     {
-        
+        StartCoroutine(LifeSpan());
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
         
+    }
+
+    IEnumerator LifeSpan()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

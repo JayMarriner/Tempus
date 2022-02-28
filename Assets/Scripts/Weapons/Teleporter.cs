@@ -20,8 +20,8 @@ public class Teleporter : MonoBehaviour
     private void Update()
     {
         if (cams[0].activeSelf)
-            cams[0].transform.rotation = Camera.main.transform.rotation;
+            cams[0].transform.localRotation = Camera.main.transform.rotation;
         else if(cams[1].activeSelf)
-            cams[1].transform.rotation = Camera.main.transform.rotation;
+            cams[1].transform.localRotation = Camera.main.transform.rotation;
     }
 }
