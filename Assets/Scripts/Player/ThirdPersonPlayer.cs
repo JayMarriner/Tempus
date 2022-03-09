@@ -29,6 +29,8 @@ public class ThirdPersonPlayer : MonoBehaviour
     Vector3 vertVel;
     float rotationSmooth = 0.1f;
     float turnSmoothVelocity;
+    bool jumpAnimTimer;
+    bool falling;
 
     [Header("Bool settings.")]
     public bool shoulderView;
@@ -52,6 +54,18 @@ public class ThirdPersonPlayer : MonoBehaviour
         {
             shoulderView = false;
             shoulderCamera.Priority = 1;
+        }
+
+        if(!IsGrounded())
+        {
+            anim.SetBool("Falling", true);
+            falling = true;
+        }
+
+        if(IsGrounded() && falling)
+        {
+            anim.SetBool("Falling", false);
+            falling = false;
         }
 
         Jump();
@@ -145,6 +159,6 @@ public class ThirdPersonPlayer : MonoBehaviour
         //Send ray down from player.
         Ray ray = new Ray(new Vector3(controller.bounds.center.x, (controller.bounds.center.y - controller.bounds.extents.y), controller.bounds.center.z), Vector3.down);
         //Return if on ground (with degree of inaccuracy)
-        return (Physics.Raycast(ray, 0.3f));
+        return (Physics.Raycast(ray, 0.5f));
     }
 }
