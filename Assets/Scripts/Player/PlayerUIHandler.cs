@@ -6,6 +6,7 @@ public class PlayerUIHandler : MonoBehaviour
 {
     [SerializeField] GameObject WeaponWheel;
     [SerializeField] GameObject reticle;
+    [SerializeField] WeaponHandler weaponHandler;
     ThirdPersonPlayer playerScript;
     InputManager inputManager;
 
@@ -20,9 +21,11 @@ public class PlayerUIHandler : MonoBehaviour
     void Update()
     {
         WeaponUI();
-        if (playerScript.shoulderView)
+        if (playerScript.shoulderView && weaponHandler.getCurrentWeapon == 1 && !reticle.activeSelf)
             StartCoroutine(ActivateReticle());
         if (!playerScript.shoulderView && reticle.activeSelf)
+            reticle.SetActive(false);
+        if (playerScript.shoulderView && weaponHandler.getCurrentWeapon != 1 && reticle.activeSelf)
             reticle.SetActive(false);
     }
 

@@ -19,6 +19,9 @@ public class ThirdPersonPlayer : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [Range(1, 20)]
     [SerializeField]private float gravity = 9f;
+    
+    [Header("Animation settings.")]
+    [SerializeField] Animator anim;
 
     InputManager inputManager;
     CharacterController controller;
@@ -26,6 +29,8 @@ public class ThirdPersonPlayer : MonoBehaviour
     Vector3 vertVel;
     float rotationSmooth = 0.1f;
     float turnSmoothVelocity;
+
+    [Header("Bool settings.")]
     public bool shoulderView;
     public bool stopCamMove;
 
@@ -63,7 +68,12 @@ public class ThirdPersonPlayer : MonoBehaviour
         else
             sprintSpeed = 1;
 
-        if (!shoulderView)
+        if (movement.magnitude >= 0.1f)
+            anim.SetBool("Jog", true);
+        else
+            anim.SetBool("Jog", false);
+
+            if (!shoulderView)
         {
             if (movement.magnitude >= 0.1f)
             {
@@ -118,7 +128,10 @@ public class ThirdPersonPlayer : MonoBehaviour
     {
         //Apply jump.
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
             vertVel.y = jumpForce;
+            anim.SetTrigger("Jump");
+        }
         //Else apply gravity.
         else
             vertVel.y -= gravity * Time.deltaTime;

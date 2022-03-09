@@ -8,6 +8,7 @@ public class WeaponHandler : MonoBehaviour
     InputManager inputManager;
     GameObject currentActive;
     int currentWeapon;
+    public int getCurrentWeapon { get => currentWeapon; }
     
 
     // Start is called before the first frame update
@@ -26,13 +27,13 @@ public class WeaponHandler : MonoBehaviour
             EnableWeapon(0);
         else if (Input.GetKeyDown(inputManager.weaponSwitch2))
             EnableWeapon(1);
+        else if (Input.GetKeyDown(inputManager.weaponSwitch3))
+            EnableWeapon(2);
     }
 
     public void EnableWeapon(int weaponInt)
     {
-        if (weaponInt > weapons.Length-1)
-            print("Exceeds weapon amount...");
-        else if(weaponInt == 0)
+        if(weaponInt == 0)
         {
             currentWeapon = 0;
             if (currentActive != null)
@@ -41,11 +42,16 @@ public class WeaponHandler : MonoBehaviour
         }
         else
         {
-            currentWeapon = weaponInt;
-            weapons[weaponInt-1].SetActive(true);
-            if(currentActive != null)
-                currentActive.SetActive(false);
-            currentActive = weapons[weaponInt-1];
+            if (weaponInt - 1 > weapons.Length)
+                print("Exceeds amount of weapons...");
+            else
+            {
+                currentWeapon = weaponInt;
+                if (currentActive != null)
+                    currentActive.SetActive(false);
+                weapons[weaponInt - 1].SetActive(true);
+                currentActive = weapons[weaponInt - 1];
+            }
         }
     }
 }
