@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     
     public virtual void Start()
     {
+        //Start lifetime ticker.
         StartCoroutine(LifeSpan());
     }
 
@@ -20,6 +21,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator LifeSpan()
     {
+        //Destroy bullet after specified amount of time.
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

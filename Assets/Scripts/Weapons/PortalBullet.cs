@@ -10,6 +10,7 @@ public class PortalBullet : Bullet
     // Start is called before the first frame update
     public override void Start()
     {
+        //Extension of the Bullet class.
         base.Start();
         portalManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<PortalManager>();
     }
@@ -17,8 +18,9 @@ public class PortalBullet : Bullet
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(collision.gameObject.name);
+        //Add portal at point.
         portalManager.AddPos(ColPoint, ColNormal);
+        //Destroy this bullet.
         Destroy(gameObject);
     }
 }

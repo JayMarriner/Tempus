@@ -29,8 +29,12 @@ public class ThirdPersonPlayer : MonoBehaviour
     Vector3 vertVel;
     float rotationSmooth = 0.1f;
     float turnSmoothVelocity;
-    bool jumpAnimTimer;
     bool falling;
+    bool running;
+    bool jogging;
+    bool stopMovement;
+    bool jumped;
+    bool fallTimer;
 
     [Header("Bool settings.")]
     public bool shoulderView;
@@ -45,23 +49,27 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Update()
     {
+        //Set shoulder camera to higher priority.
         if (Input.GetKeyDown(inputManager.aim))
         {
             shoulderView = true;
             shoulderCamera.Priority = 11;
         }
+        //Puts priority of shoulder camera down to let main camera take over.
         else if (Input.GetKeyUp(inputManager.aim) || stopCamMove)
         {
             shoulderView = false;
             shoulderCamera.Priority = 1;
         }
 
-        if(!IsGrounded())
+        //If the player is greater than x amount off the floor then it will play the falling animation.
+        if(!FallGrounded())
         {
             anim.SetBool("Falling", true);
             falling = true;
         }
 
+        //Fail safe to knock off the falling animation when the player has reached the ground.
         if(IsGrounded() && falling)
         {
             anim.SetBool("Falling", false);
@@ -74,21 +82,54 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Movement()
     {
+        //Kill switch for movement, useful for menus, etc.
+        if (stopMovement)
+            return;
+
         //Store input as vector.
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         int sprintSpeed;
+        //Allow for the player to sprint using key input.
         if (Input.GetKey(inputManager.sprint))
+        {
             sprintSpeed = 2;
+            running = true;
+            anim.SetBool("Run", true);
+        }
+        //else set the speed back to base.
         else
             sprintSpeed = 1;
 
-        if (movement.magnitude >= 0.1f)
-            anim.SetBool("Jog", true);
-        else
-            anim.SetBool("Jog", false);
-
-            if (!shoulderView)
+        //Fail safe, if the player stops pressing sprint button then setbool back to false and turn anim off.
+        if(Input.GetKeyUp(inputManager.sprint) && running)
         {
+            running = false;
+            anim.SetBool("Run", false);
+        }
+
+        //Fail safe, if the bool is left on somehow but the player isn't moving it will turn the animation off.
+        if (movement.magnitude == 0 && running)
+        {
+            anim.SetBool("Run", false);
+        }
+
+        //If the player is moving but not running then jog animation will play.
+        if (movement.magnitude >= 0.1f && !running)
+        {
+            anim.SetBool("Jog", true);
+            jogging = true;
+        }
+        //Else turn jogging off.
+        else
+        {
+            anim.SetBool("Jog", false);
+            jogging = false;
+        }
+
+        //If not in the shoulder view then...
+        if (!shoulderView)
+        {
+            //If player is moving then...
             if (movement.magnitude >= 0.1f)
             {
                 //Determine rotation angle
@@ -113,6 +154,7 @@ public class ThirdPersonPlayer : MonoBehaviour
         }
         else
         {
+            //If player is moving then...
             if(movement.magnitude >= 0.1f)
             {
                 //Determine rotation angle
@@ -128,7 +170,10 @@ public class ThirdPersonPlayer : MonoBehaviour
                 //Apply movement
                 controller.Move(moveDirection * speed * sprintSpeed * Time.deltaTime);
             }
+            //Allow rotation on the shoulder view. There is a serializeField for changing this value to lower or increase sensitivity.
             gameObject.transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * shoulderHorSpeed, 0);
+
+            //Setting the camera offset.
             var shoulderOffset = shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y;
             shoulderCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y += -Input.GetAxis("Mouse Y") * Time.deltaTime * shoulderVerSpeed;
             if (shoulderOffset > 2)
@@ -143,8 +188,12 @@ public class ThirdPersonPlayer : MonoBehaviour
         //Apply jump.
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            vertVel.y = jumpForce;
+            if (running)
+                vertVel.y = jumpForce;
+            else
+                vertVel.y = jumpForce*0.8f;
             anim.SetTrigger("Jump");
+            StartCoroutine(FallRollTimer());
         }
         //Else apply gravity.
         else
@@ -160,5 +209,62 @@ public class ThirdPersonPlayer : MonoBehaviour
         Ray ray = new Ray(new Vector3(controller.bounds.center.x, (controller.bounds.center.y - controller.bounds.extents.y), controller.bounds.center.z), Vector3.down);
         //Return if on ground (with degree of inaccuracy)
         return (Physics.Raycast(ray, 0.5f));
+    }
+
+    bool FallGrounded()
+    {
+        //Send ray down from player.
+        Ray ray = new Ray(new Vector3(controller.bounds.center.x, (controller.bounds.center.y - controller.bounds.extents.y), controller.bounds.center.z), Vector3.down);
+        //Return if on ground (with degree of inaccuracy)
+        return (Physics.Raycast(ray, 3f));
+    }
+
+    IEnumerator FallRollTimer()
+    {
+        if (fallTimer)
+        {
+            anim.SetBool("FallRoll", false);
+            anim.SetBool("HardLand", false);
+            yield break;
+        }
+        fallTimer = true;
+        //Change this to change length of time in air needed to apply landing anims.
+        yield return new WaitForSeconds(1.5f);
+        //Check if player has reached the floor or not, if they havent the landing anims will be applied.
+        if (!IsGrounded())
+        {
+            //Waits until the player has reached the floor whilst constantly checking what buttons the player is pressing - this stops the check from accidentally doing wrong anim.
+            while (!IsGrounded())
+            {
+                if (running)
+                    anim.SetBool("FallRoll", true);
+                else
+                    anim.SetBool("FallRoll", false);
+                if (!running)
+                    anim.SetBool("HardLand", true);
+                else
+                    anim.SetBool("HardLand", false);
+                yield return new WaitForSeconds(0.1f);
+            }
+            //If the player isn't running then play the hard landing animation.
+            if (!running)
+            {
+                anim.SetBool("HardLand", true);
+                stopMovement = true;
+                yield return new WaitForSeconds(1f);
+                anim.SetBool("HardLand", false);
+                stopMovement = false;
+            }
+            //If the player was running then the roll animation will play.
+            else
+            {
+                anim.SetBool("FallRoll", true);
+                stopMovement = true;
+                yield return new WaitForSeconds(0.5f);
+                anim.SetBool("FallRoll", false);
+                stopMovement = false;
+            }
+        }
+        fallTimer = false;
     }
 }
