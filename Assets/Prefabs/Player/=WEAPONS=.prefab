@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 2383042996625692727, guid: 9aaf4a9f9017f1c4fbd04fe4cf699468, type: 3}
   arrowSpawnPoint: {fileID: 1445808806738175873}
+  arrowSpeed: 20000
 --- !u!1001 &3796596151451610178
 PrefabInstance:
   m_ObjectHideFlags: 0
