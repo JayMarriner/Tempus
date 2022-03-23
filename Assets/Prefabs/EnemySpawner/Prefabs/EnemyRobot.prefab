@@ -105,6 +105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 9007312706319402087, guid: 8811ff83d1572854bbd0398e03e48292, type: 3}
+      propertyPath: projectileSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8811ff83d1572854bbd0398e03e48292, type: 3}
 --- !u!4 &8377712771241243385 stripped
@@ -119,6 +123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3187906175797891}
     m_Modifications:
+    - target: {fileID: 954746703077585243, guid: 3eb7b059ea643a74f8b237df5dd846de, type: 3}
+      propertyPath: m_Name
+      value: Head
+      objectReference: {fileID: 0}
     - target: {fileID: 1815875914971352733, guid: 3eb7b059ea643a74f8b237df5dd846de, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -166,6 +174,14 @@ PrefabInstance:
     - target: {fileID: 2920547874339003691, guid: 3eb7b059ea643a74f8b237df5dd846de, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959216294236575562, guid: 3eb7b059ea643a74f8b237df5dd846de, type: 3}
+      propertyPath: m_Name
+      value: Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771012138082453274, guid: 3eb7b059ea643a74f8b237df5dd846de, type: 3}
+      propertyPath: m_Name
+      value: Face
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3eb7b059ea643a74f8b237df5dd846de, type: 3}
