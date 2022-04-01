@@ -12,6 +12,8 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] int[] timeSpent;
     [Tooltip("The name of the animation state that should trigger at each location.")]
     [SerializeField] string[] animName;
+    [Tooltip("The way the player should be facing when stopped for animation.")]
+    [SerializeField] Transform[] viewPos;
     [Tooltip("The animation controller for the NPC.")]
     [SerializeField] Animator animController;
 
@@ -32,14 +34,16 @@ public class NPCMovement : MonoBehaviour
             agent.SetDestination(targetPos[currentLoopPos].position);
             animController.SetBool("walking", true);
             while (agent.remainingDistance > 0.01f)
-            {
-                print("hhjj0000");
+            {  
                 yield return new WaitForSeconds(0.1f);
             }
             animController.SetBool("walking", false);
+            agent.isStopped = true;
+            transform.LookAt(viewPos[currentLoopPos].position);
             animController.SetBool(animName[currentLoopPos], true);
             yield return new WaitForSeconds(timeSpent[currentLoopPos]);
             animController.SetBool(animName[currentLoopPos], false);
+            agent.isStopped = false;
             currentLoopPos++;
             if (currentLoopPos > targetPos.Length - 1)
                 currentLoopPos = 0;
