@@ -8,20 +8,20 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RagTex
-  m_Shader: {fileID: 4800000, guid: 7f50d1ec77e2cc9459ca9d36924ffc53, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: BACKSOLID BOTTOMSOLID DONTMIX FRONTSOLID LEFTSOLID RIGHTSOLID
-    TEXTUREMODULE_ON TOPSOLID _AOUV_UV0 _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL
-    _GRADSETTINGS_D_USE_GLOBAL _GRADSETTINGS_F_USE_GLOBAL _GRADSETTINGS_L_USE_GLOBAL
-    _GRADSETTINGS_R_USE_GLOBAL _GRADSETTINGS_T_USE_GLOBAL _LMAPBLENDINGMODE_ADD _MODE_OPAQUE
-    _SHADING_B_SOLID_COLOR _SHADING_D_SOLID_COLOR _SHADING_F_SOLIDCOLOR _SHADING_L_SOLID_COLOR
-    _SHADING_R_SOLID_COLOR _SHADING_T_SOLID_COLOR _SHOWBACK_ON _SHOWBOTTOM_ON _SHOWCUSTOMSHADING_ON
-    _SHOWFRONT_ON _SHOWLEFT_ON _SHOWRIGHT_ON _SHOWTEXTURE_ON _SHOWTOP_ON
+    TEXTUREMODULE_ON TOPSOLID _AOUV_UV0 _GLOSSYREFLECTIONS_OFF _GRADIENTSPACE_WORLD_SPACE
+    _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL _GRADSETTINGS_F_USE_GLOBAL
+    _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL _GRADSETTINGS_T_USE_GLOBAL
+    _LMAPBLENDINGMODE_ADD _MODE_OPAQUE _SHADING_B_SOLID_COLOR _SHADING_D_SOLID_COLOR
+    _SHADING_F_SOLIDCOLOR _SHADING_L_SOLID_COLOR _SHADING_R_SOLID_COLOR _SHADING_T_SOLID_COLOR
+    _SHOWBACK_ON _SHOWBOTTOM_ON _SHOWCUSTOMSHADING_ON _SHOWFRONT_ON _SHOWLEFT_ON
+    _SHOWRIGHT_ON _SHOWTEXTURE_ON _SHOWTOP_ON _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -88,7 +88,7 @@ Material:
     - _FogYStartPos: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _GradSettings_B: 0
     - _GradSettings_D: 0
     - _GradSettings_F: 0
@@ -147,7 +147,7 @@ Material:
     - _ShowTexture: 1
     - _ShowTop: 1
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _UnityFogEnable: 0
@@ -156,7 +156,7 @@ Material:
     m_Colors:
     - _AOColor: {r: 0, g: 0, b: 0, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.06220009, g: 0.023068696, b: 0.16981131, a: 1}
+    - _Color: {r: 0.60267544, g: 0.6132076, b: 0.3725525, a: 1}
     - _Color1_B: {r: 0.4039216, g: 0.33333334, b: 0.20784315, a: 1}
     - _Color1_D: {r: 0.4039216, g: 0.33333334, b: 0.20784315, a: 1}
     - _Color1_F: {r: 0.4056604, g: 0.33339414, b: 0.20857067, a: 1}
