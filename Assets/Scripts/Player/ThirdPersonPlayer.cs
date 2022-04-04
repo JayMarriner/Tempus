@@ -19,6 +19,10 @@ public class ThirdPersonPlayer : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [Range(1, 20)]
     [SerializeField]private float gravity = 9f;
+
+    [Header("HealthBar")]
+    public HealthBar healthBar;
+    public float currHealth, maxHealth=10f;
     
     [Header("Animation settings.")]
     [SerializeField] Animator anim;
@@ -45,10 +49,16 @@ public class ThirdPersonPlayer : MonoBehaviour
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
         controller = gameObject.GetComponent<CharacterController>();
         cam = Camera.main.transform;
+        currHealth = maxHealth;
     }
 
     void Update()
     {
+        //Testing the health bar with damage. (didnt add this to input manager because it is a temp measure).
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TakeDamage();
+        }         
         //Set shoulder camera to higher priority.
         if (Input.GetKeyDown(inputManager.aim))
         {
@@ -217,6 +227,15 @@ public class ThirdPersonPlayer : MonoBehaviour
         Ray ray = new Ray(new Vector3(controller.bounds.center.x, (controller.bounds.center.y - controller.bounds.extents.y), controller.bounds.center.z), Vector3.down);
         //Return if on ground (with degree of inaccuracy)
         return (Physics.Raycast(ray, 3f));
+    }
+
+    public void TakeDamage()
+    {
+        //Deduct the health based on a random value.
+        currHealth -= Mathf.Min(Random.value, currHealth / 4f);
+
+        //Updates the health bar based on the remaining health.
+        healthBar.UpdatePlayerHealth();
     }
 
     IEnumerator FallRollTimer()
