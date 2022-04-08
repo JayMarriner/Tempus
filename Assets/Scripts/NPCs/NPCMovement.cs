@@ -25,6 +25,11 @@ public class NPCMovement : MonoBehaviour
         StartCoroutine(AnimLoop());
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(AnimLoop());
+    }
+
     IEnumerator AnimLoop()
     {
         int currentLoopPos = 0;
