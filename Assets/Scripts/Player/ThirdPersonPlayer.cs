@@ -28,7 +28,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     [SerializeField] Animator anim;
 
     InputManager inputManager;
-    CharacterController controller;
+    public CharacterController controller { get; private set; }
     Transform cam;
     Vector3 vertVel;
     float rotationSmooth = 0.1f;

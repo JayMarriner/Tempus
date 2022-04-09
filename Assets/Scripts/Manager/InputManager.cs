@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public KeyCode weaponSwitch1;
     public KeyCode weaponSwitch2;
     public KeyCode weaponSwitch3;
+    public KeyCode useJetpack;
 
     private void Awake()
     {
@@ -21,5 +22,6 @@ public class InputManager : MonoBehaviour
         weaponSwitch1 = KeyCode.Alpha1;
         weaponSwitch2 = KeyCode.Alpha2;
         weaponSwitch3 = KeyCode.Alpha3;
+        useJetpack = KeyCode.Space;
     }
 }
