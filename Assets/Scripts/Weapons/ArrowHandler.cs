@@ -26,4 +26,20 @@ public class ArrowHandler : MonoBehaviour
         yield return new WaitForSeconds(60f);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
+            other.GetComponent<RobotInfo>().LowerHealth(25);
+            Destroy(gameObject);
+        }
+
+        if(other.tag == "Spawner")
+        {
+            print("Spawner hit");
+            other.GetComponent<SpawnerHealth>().LowerHealth(50);
+            Destroy(gameObject);
+        }
+    }
 }
