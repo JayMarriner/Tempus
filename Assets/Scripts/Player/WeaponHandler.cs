@@ -27,8 +27,8 @@ public class WeaponHandler : MonoBehaviour
         foreach (GameObject obj in weapons)
             obj.SetActive(false);
 
-        /*leftHand.GetComponent<FastIKFabric>().enabled = false;
-        rightHand.GetComponent<FastIKFabric>().enabled = false;*/
+        leftHand.GetComponent<FastIKFabric>().enabled = false;
+        rightHand.GetComponent<FastIKFabric>().enabled = false;
     }
 
     private void Update()
@@ -56,11 +56,12 @@ public class WeaponHandler : MonoBehaviour
         //Sets weapon 0 (fist, no weapon)
         if(weaponInt == 0)
         {
-           /* if (leftHand.GetComponent<FastIKFabric>().enabled)
+            if (leftHand.GetComponent<FastIKFabric>().enabled)
             {
                 leftHand.GetComponent<FastIKFabric>().enabled = false;
                 rightHand.GetComponent<FastIKFabric>().enabled = false;
-            }*/
+            }
+
             //Set currently set weapon to disabled if there is one enabled.
             if (currentActive != null)
                 currentActive.SetActive(false);
@@ -74,13 +75,16 @@ public class WeaponHandler : MonoBehaviour
             //Else we set the corrosponding weapon that was passed through to active and the last weapon to inactive.
             else
             {
-                /*if (!leftHand.GetComponent<FastIKFabric>().enabled)
+                if (!leftHand.GetComponent<FastIKFabric>().enabled)
                 {
                     leftHand.GetComponent<FastIKFabric>().enabled = true;
                     rightHand.GetComponent<FastIKFabric>().enabled = true;
-                }*/
+                }
 
-                //leftHand.GetComponent<FastIKFabric>().Target = leftHandTarget[0]
+                leftHand.GetComponent<FastIKFabric>().Target = leftHandTarget[weaponInt - 1].transform;
+                rightHand.GetComponent<FastIKFabric>().Target = rightHandTarget[weaponInt - 1].transform;
+                leftHand.GetComponent<FastIKFabric>().Pole = leftElbowTarget[weaponInt - 1].transform;
+                rightHand.GetComponent<FastIKFabric>().Pole = rightElbowTarget[weaponInt - 1].transform;
                 //If there's currently an active item then we will set it to false.
                 if (currentActive != null)
                     currentActive.SetActive(false);
