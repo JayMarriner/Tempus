@@ -5,6 +5,7 @@ using DitzelGames.FastIK;
 
 public class WeaponHandler : MonoBehaviour
 {
+    [SerializeField] Animator anim;
     [SerializeField] GameObject[] weapons;
     [Header("IK setup")]
     [SerializeField] GameObject leftHand;
@@ -29,6 +30,7 @@ public class WeaponHandler : MonoBehaviour
 
         leftHand.GetComponent<FastIKFabric>().enabled = false;
         rightHand.GetComponent<FastIKFabric>().enabled = false;
+        anim.SetLayerWeight(1, 0);
     }
 
     private void Update()
@@ -41,11 +43,11 @@ public class WeaponHandler : MonoBehaviour
         else if (Input.GetKeyDown(inputManager.weaponSwitch3))
             EnableWeapon(2);
 
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             NextWeapon();
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             PrevWeapon();
         }
@@ -62,6 +64,8 @@ public class WeaponHandler : MonoBehaviour
                 rightHand.GetComponent<FastIKFabric>().enabled = false;
             }
 
+            anim.SetLayerWeight(1, 0);
+
             //Set currently set weapon to disabled if there is one enabled.
             if (currentActive != null)
                 currentActive.SetActive(false);
@@ -75,6 +79,7 @@ public class WeaponHandler : MonoBehaviour
             //Else we set the corrosponding weapon that was passed through to active and the last weapon to inactive.
             else
             {
+                anim.SetLayerWeight(1, 1);
                 if (!leftHand.GetComponent<FastIKFabric>().enabled)
                 {
                     leftHand.GetComponent<FastIKFabric>().enabled = true;

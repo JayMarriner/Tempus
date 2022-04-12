@@ -23,7 +23,7 @@ public class ArrowHandler : MonoBehaviour
     IEnumerator LifeTime()
     {
         lifeStarted = true;
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(30f);
         Destroy(gameObject);
     }
 

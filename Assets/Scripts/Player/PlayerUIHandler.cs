@@ -22,13 +22,13 @@ public class PlayerUIHandler : MonoBehaviour
     {
         WeaponUI();
         //If the weapon is a gun and player is in shoulder view and the reticle isnt already active then activate the reticle.
-        if (playerScript.shoulderView && weaponHandler.getCurrentWeapon == 2 && !reticle.activeSelf)
+        if (playerScript.shoulderView && weaponHandler.getCurrentWeapon != 1 && !reticle.activeSelf)
             StartCoroutine(ActivateReticle());
         //if the player isn't in shoulderview and the reticle is active then turn if off.
         else if (!playerScript.shoulderView && reticle.activeSelf)
             reticle.SetActive(false);
         //If the player is in shoulder view and the weapon isn't a gun but the reticle is turned on then turn it off.
-        else if (playerScript.shoulderView && weaponHandler.getCurrentWeapon != 1 && reticle.activeSelf)
+        else if (playerScript.shoulderView && weaponHandler.getCurrentWeapon == 1 && reticle.activeSelf)
             reticle.SetActive(false);
     }
 
