@@ -17,7 +17,7 @@ public class Jetpack : MonoBehaviour
     public ParticleSystem effect2;
 
     [Header("Bools")]
-    public bool isEquipped;
+    public bool isEquipped = false;
     public bool HasJetPack { get; set; }
 
     // Start is called before the first frame update
@@ -26,7 +26,10 @@ public class Jetpack : MonoBehaviour
         currFuel = maxFuel;
 
         tpp = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>();
-        inputManager = GetComponent<InputManager>();
+        inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
+
+        effect1.Stop();
+        effect2.Stop();
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class Jetpack : MonoBehaviour
         {
             if (Input.GetKey(inputManager.useJetpack) && currFuel > 0f)
             {
-                //player using true
+                tpp.usingJetpack = true;
                 currFuel -= Time.deltaTime;
                 effect1.Play();
                 effect2.Play();
@@ -49,7 +52,7 @@ public class Jetpack : MonoBehaviour
 
             if (Input.GetKey(inputManager.useJetpack) || currFuel <= 0f)
             {
-                //player using false
+                tpp.usingJetpack = false;
                 effect1.Stop();
                 effect2.Stop();
             }
