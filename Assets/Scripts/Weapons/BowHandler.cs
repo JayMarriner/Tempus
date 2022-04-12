@@ -6,7 +6,8 @@ public class BowHandler : MonoBehaviour
 {
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] GameObject arrowSpawnPoint;
-    [Range(5000,20000)]
+    [SerializeField] GameObject rightHand;
+    [Range(1,250)]
     [SerializeField] int arrowSpeed;
     GameObject currentArrow;
     LineRenderer line;
@@ -17,6 +18,8 @@ public class BowHandler : MonoBehaviour
     float powerAmt;
     float moveAmt;
     bool readyToFire;
+    Vector3 collisionNormal;
+    Vector3 initHandPos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class BowHandler : MonoBehaviour
         line = GetComponentInChildren<LineRenderer>();
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
         initialPos = line.GetPosition(1);
+        initHandPos = rightHand.transform.position;
     }
 
     // Update is called once per frame
@@ -54,12 +58,15 @@ public class BowHandler : MonoBehaviour
 
     void ShootArrow()
     {
+
         Rigidbody arrowRb = currentArrow.GetComponent<Rigidbody>();
         currentArrow.GetComponent<BoxCollider>().isTrigger = false;
         currentArrow.GetComponent<ArrowHandler>().isFired = true;
-        arrowRb.AddForce(transform.forward * Time.deltaTime * arrowSpeed * powerAmt * 2);
-        currentArrow.transform.parent = null;
+        arrowRb.AddForce(transform.forward * Time.deltaTime * powerAmt * arrowSpeed, ForceMode.Impulse);
+        //transform.forward * Time.deltaTime * arrowSpeed * powerAmt * 2
+        currentArrow.GetComponent<BoxCollider>().isTrigger = false;
         arrowRb.useGravity = true;
+        currentArrow.transform.parent = null;
         currentArrow = null;
     }
 
@@ -71,20 +78,23 @@ public class BowHandler : MonoBehaviour
         pullingString = true;
         while (moveAmt < 1.75f)
         {
-            if (moveAmt > 0.5f && !readyToFire)
+            if (moveAmt > 0.25f && !readyToFire)
                 readyToFire = true;
 
             //If the player is still holding the fire button then continue to pull the bowstring back until max amount.
             if (Input.GetKey(inputManager.shoot) && Input.GetKey(inputManager.aim))
             {
                 //Move back the midpoint of the bowstring line renderer, move arrow back equal amount.
-                line.SetPosition(1, new Vector3(line.GetPosition(1).x, line.GetPosition(1).y, line.GetPosition(1).z - 0.02f));
+                line.SetPosition(1, new Vector3(line.GetPosition(1).x, line.GetPosition(1).y, line.GetPosition(1).z - 0.04f));
 
                 //Move arrow back with string being pulled.
-                currentArrow.transform.localPosition += new Vector3(0, 0, -0.02f);
+                currentArrow.transform.localPosition += new Vector3(0, 0, -0.04f);
+
+                //Move hand
+                rightHand.transform.localPosition += new Vector3(0, 0, -0.04f);
 
                 //Update moveamt to break the while loop.
-                moveAmt += 0.02f;
+                moveAmt += 0.04f;
 
                 //Increase the powerAmt multiplier to increase power as the bow is pulled further back.
                 powerAmt = moveAmt * 10;
@@ -109,6 +119,7 @@ public class BowHandler : MonoBehaviour
         while (moveAmt > 0f)
         {
             line.SetPosition(1, new Vector3(line.GetPosition(1).x, line.GetPosition(1).y, line.GetPosition(1).z + 0.08f));
+            rightHand.transform.localPosition += new Vector3(0, 0, 0.08f);
             if(currentArrow != null)
                 currentArrow.transform.localPosition += new Vector3(0, 0, 0.08f);
             moveAmt -= 0.08f;
@@ -120,6 +131,7 @@ public class BowHandler : MonoBehaviour
 
         //Set bow back to the initial position, without this the bow slowly goes further and further in with each use.
         line.SetPosition(1, initialPos);
+
         if (currentArrow != null)
             currentArrow.transform.position = arrowSpawnPoint.transform.position;
 

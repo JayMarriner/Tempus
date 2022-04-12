@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 4455207286767426379}
   - {fileID: 8162058781538633079}
+  - {fileID: 4455207286767426379}
 --- !u!114 &1584762510711331033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 2383042996625692727, guid: 9aaf4a9f9017f1c4fbd04fe4cf699468, type: 3}
   arrowSpawnPoint: {fileID: 1445808806738175873}
-  arrowSpeed: 20000
+  arrowSpeed: 3
 --- !u!1001 &3796596151451610178
 PrefabInstance:
   m_ObjectHideFlags: 0
