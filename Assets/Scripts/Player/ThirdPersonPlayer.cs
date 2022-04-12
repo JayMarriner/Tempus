@@ -27,8 +27,12 @@ public class ThirdPersonPlayer : MonoBehaviour
     [Header("Animation settings.")]
     [SerializeField] Animator anim;
 
+    [Header("Jetpack")]
+    public bool usingJetpack;
+    public Jetpack Jetpack { get; private set; }
+
     InputManager inputManager;
-    CharacterController controller;
+    public CharacterController controller { get; private set; }
     Transform cam;
     Vector3 vertVel;
     float rotationSmooth = 0.1f;
@@ -46,14 +50,31 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     private void Start()
     {
+        //Input
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
+
+        //Controller
         controller = gameObject.GetComponent<CharacterController>();
+
+        //Camera
         cam = Camera.main.transform;
+
+        //Health
         currHealth = maxHealth;
+
+        //Jetpack
+        Jetpack = GetComponentInChildren<Jetpack>();
+        Jetpack.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        //Updates  bool when jetpack is false.
+        if (!Jetpack.gameObject.activeSelf && usingJetpack)
+            usingJetpack = false;
+
+        
+
         //Testing the health bar with damage. (didnt add this to input manager because it is a temp measure).
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -86,8 +107,11 @@ public class ThirdPersonPlayer : MonoBehaviour
             falling = false;
         }
 
+
         Jump();
         Movement();
+        JetpackStatus();
+        ToggleJetpack();
     }
 
     void Movement()
@@ -201,16 +225,44 @@ public class ThirdPersonPlayer : MonoBehaviour
             if (running)
                 vertVel.y = jumpForce;
             else
-                vertVel.y = jumpForce*0.8f;
+                vertVel.y = jumpForce * 0.8f;
             anim.SetTrigger("Jump");
             StartCoroutine(FallRollTimer());
         }
         //Else apply gravity.
-        else
-            vertVel.y -= gravity * Time.deltaTime;
+        else 
+        {
+            if (!usingJetpack)
+                vertVel.y -= gravity * Time.deltaTime;
+        }            
 
         //Apply movement.
         controller.Move(vertVel * Time.deltaTime);
+    }
+
+    void JetpackStatus()
+    {
+        if (Jetpack.isEquipped)
+        {
+            Jetpack.gameObject.SetActive(true);
+            Jetpack.effect1.Stop();
+            Jetpack.effect2.Stop();
+            //ui
+        }
+    }
+
+    void ToggleJetpack()
+    {
+        if (Input.GetKeyDown(inputManager.toggleJetpack) && Jetpack.HasJetPack)
+        {
+            //Allows for the input to both activate and de-activate the jetpack.
+            Jetpack.isEquipped = !Jetpack.isEquipped;
+
+            //Sets the jetpack to active based on the bool.
+            Jetpack.gameObject.SetActive(Jetpack.isEquipped);
+
+
+        }
     }
 
     bool IsGrounded()
