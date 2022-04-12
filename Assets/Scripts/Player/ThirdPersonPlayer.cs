@@ -73,7 +73,6 @@ public class ThirdPersonPlayer : MonoBehaviour
         if (!jetpack.activeSelf && usingJetpack)
             usingJetpack = false;
 
-        
 
         //Testing the health bar with damage. (didnt add this to input manager because it is a temp measure).
         if (Input.GetKeyDown(KeyCode.T))
@@ -219,8 +218,14 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Jump()
     {
+        if (Input.GetKey(inputManager.useJetpack) && jetpack.activeSelf && jetScript.currFuel > 0)
+        {
+            usingJetpack = true;
+            vertVel.y = jumpForce;
+            anim.SetBool("Floating", true);
+        }
         //Apply jump.
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        else if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             if (running)
                 vertVel.y = jumpForce;
@@ -234,7 +239,12 @@ public class ThirdPersonPlayer : MonoBehaviour
         {
             if (!usingJetpack)
                 vertVel.y -= gravity * Time.deltaTime;
-        }            
+        }
+
+        if (anim.GetBool("Floating") && IsGrounded())
+        {
+            anim.SetBool("Floating", false);
+        }
 
         //Apply movement.
         controller.Move(vertVel * Time.deltaTime);

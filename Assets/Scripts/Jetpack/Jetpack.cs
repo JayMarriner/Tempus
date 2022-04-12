@@ -9,8 +9,8 @@ public class Jetpack : MonoBehaviour
     private InputManager inputManager;
 
     [Header("Fuel")]
-    [SerializeField] private float maxFuel = 4f;
-    [SerializeField] private float currFuel;
+    [SerializeField] public float maxFuel = 4f;
+    [SerializeField] public float currFuel;
 
     [Header("Effects")]
     public ParticleSystem effect1;
