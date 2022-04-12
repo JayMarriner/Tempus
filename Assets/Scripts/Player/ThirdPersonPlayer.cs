@@ -28,8 +28,9 @@ public class ThirdPersonPlayer : MonoBehaviour
     [SerializeField] Animator anim;
 
     [Header("Jetpack")]
+    [SerializeField] GameObject jetpack;
+    public Jetpack jetScript;
     public bool usingJetpack;
-    public Jetpack Jetpack { get; private set; }
 
     InputManager inputManager;
     public CharacterController controller { get; private set; }
@@ -63,14 +64,13 @@ public class ThirdPersonPlayer : MonoBehaviour
         currHealth = maxHealth;
 
         //Jetpack
-        Jetpack = GetComponentInChildren<Jetpack>();
-        Jetpack.gameObject.SetActive(false);
+        jetScript = jetpack.GetComponent<Jetpack>();
     }
 
     void Update()
     {
         //Updates  bool when jetpack is false.
-        if (!Jetpack.gameObject.activeSelf && usingJetpack)
+        if (!jetpack.activeSelf && usingJetpack)
             usingJetpack = false;
 
         
@@ -242,24 +242,24 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void JetpackStatus()
     {
-        if (Jetpack.isEquipped)
+        if (jetScript.isEquipped)
         {
-            Jetpack.gameObject.SetActive(true);
-            Jetpack.effect1.Stop();
-            Jetpack.effect2.Stop();
+            jetScript.gameObject.SetActive(true);
+            jetScript.effect1.Stop();
+            jetScript.effect2.Stop();
             //ui
         }
     }
 
     void ToggleJetpack()
     {
-        if (Input.GetKeyDown(inputManager.toggleJetpack) && Jetpack.HasJetPack)
+        if (Input.GetKeyDown(inputManager.toggleJetpack) && jetScript.HasJetPack)
         {
             //Allows for the input to both activate and de-activate the jetpack.
-            Jetpack.isEquipped = !Jetpack.isEquipped;
+            jetScript.isEquipped = !jetScript.isEquipped;
 
             //Sets the jetpack to active based on the bool.
-            Jetpack.gameObject.SetActive(Jetpack.isEquipped);
+            jetpack.SetActive(jetScript.isEquipped);
 
 
         }

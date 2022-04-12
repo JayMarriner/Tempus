@@ -30,6 +30,8 @@ public class Jetpack : MonoBehaviour
 
         effect1.Stop();
         effect2.Stop();
+
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

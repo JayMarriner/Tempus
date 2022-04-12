@@ -20,6 +20,11 @@ public class ShootHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(inputManager.aim))
+            gameObject.transform.eulerAngles = new Vector3(Camera.main.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, gameObject.transform.eulerAngles.z);
+        else
+            gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
+
         if (Input.GetKey(inputManager.aim) && Input.GetKeyDown(inputManager.shoot))
         {
             //Middle of screen.

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+    public enum ObjType
+    {
+        jetpack,
+        bow
+    };
+
     [Header("Collectable")]
     [SerializeField] private GameObject collectableObject;
 
-    [Header("Jetpack Status")]
-    [SerializeField] public bool isEquipped;
+    [Header("Object Type")]
+    [SerializeField] ObjType type;    
 
     [Header("Collectable Movement")]
     [SerializeField] private float xAngle, yAngle, zAngle;
@@ -21,7 +27,6 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        isEquipped = false;
         startPos = transform.position.y;
 
     }
@@ -62,11 +67,12 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<ThirdPersonPlayer>().Jetpack.HasJetPack = true;
-            other.GetComponent<ThirdPersonPlayer>().Jetpack.isEquipped = true;
+            if(type == ObjType.jetpack)
+            {
+                other.GetComponent<ThirdPersonPlayer>().jetScript.HasJetPack = true;
+                other.GetComponent<ThirdPersonPlayer>().jetScript.isEquipped = true;
+            }
             Destroy(collectableObject);
         }
-        else
-            isEquipped = false;
     }
 }
