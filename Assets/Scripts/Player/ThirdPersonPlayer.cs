@@ -37,10 +37,10 @@ public class ThirdPersonPlayer : MonoBehaviour
     Vector3 vertVel;
     float rotationSmooth = 0.1f;
     float turnSmoothVelocity;
+    public bool stopMovement;
     bool falling;
     bool running;
     bool jogging;
-    bool stopMovement;
     bool jumped;
     bool fallTimer;
 

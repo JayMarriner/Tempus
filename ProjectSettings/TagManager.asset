@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Ground
   - Collectable
+  - Enemy
+  - Spawner
   layers:
   - Default
   - TransparentFX

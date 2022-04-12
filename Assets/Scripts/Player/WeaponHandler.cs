@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DitzelGames.FastIK;
 
 public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] GameObject[] weapons;
+    [Header("IK setup")]
+    [SerializeField] GameObject leftHand;
+    [SerializeField] GameObject rightHand;
+    [Header("Weapon IK setup")]
+    [SerializeField] GameObject[] leftHandTarget;
+    [SerializeField] GameObject[] rightHandTarget;
+    [SerializeField] GameObject[] leftElbowTarget;
+    [SerializeField] GameObject[] rightElbowTarget;
     InputManager inputManager;
     GameObject currentActive;
     int currentWeapon;
@@ -17,6 +26,9 @@ public class WeaponHandler : MonoBehaviour
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
         foreach (GameObject obj in weapons)
             obj.SetActive(false);
+
+        /*leftHand.GetComponent<FastIKFabric>().enabled = false;
+        rightHand.GetComponent<FastIKFabric>().enabled = false;*/
     }
 
     private void Update()
@@ -28,6 +40,15 @@ public class WeaponHandler : MonoBehaviour
             EnableWeapon(1);
         else if (Input.GetKeyDown(inputManager.weaponSwitch3))
             EnableWeapon(2);
+
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            NextWeapon();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            PrevWeapon();
+        }
     }
 
     public void EnableWeapon(int weaponInt)
@@ -35,6 +56,11 @@ public class WeaponHandler : MonoBehaviour
         //Sets weapon 0 (fist, no weapon)
         if(weaponInt == 0)
         {
+           /* if (leftHand.GetComponent<FastIKFabric>().enabled)
+            {
+                leftHand.GetComponent<FastIKFabric>().enabled = false;
+                rightHand.GetComponent<FastIKFabric>().enabled = false;
+            }*/
             //Set currently set weapon to disabled if there is one enabled.
             if (currentActive != null)
                 currentActive.SetActive(false);
@@ -48,6 +74,13 @@ public class WeaponHandler : MonoBehaviour
             //Else we set the corrosponding weapon that was passed through to active and the last weapon to inactive.
             else
             {
+                /*if (!leftHand.GetComponent<FastIKFabric>().enabled)
+                {
+                    leftHand.GetComponent<FastIKFabric>().enabled = true;
+                    rightHand.GetComponent<FastIKFabric>().enabled = true;
+                }*/
+
+                //leftHand.GetComponent<FastIKFabric>().Target = leftHandTarget[0]
                 //If there's currently an active item then we will set it to false.
                 if (currentActive != null)
                     currentActive.SetActive(false);
@@ -58,5 +91,21 @@ public class WeaponHandler : MonoBehaviour
             }
         }
         currentWeapon = weaponInt;
+    }
+
+    void NextWeapon()
+    {
+        int nextWeapon = currentWeapon+=1;
+        if (nextWeapon > weapons.Length)
+            nextWeapon = 0;
+        EnableWeapon(nextWeapon);
+    }
+
+    void PrevWeapon()
+    {
+        int nextWeapon = currentWeapon-=1;
+        if (nextWeapon < 0)
+            nextWeapon = weapons.Length;
+        EnableWeapon(nextWeapon);
     }
 }
