@@ -8,48 +8,36 @@ using DG.Tweening;
 public class HealthBar : MonoBehaviour
 {
     public Image healthBarImage;
-
+    [SerializeField] GameObject canvas;
     public ThirdPersonPlayer player;
+    bool fillChange;
+    public float currFillAmt;
+
+    private void Start()
+    {
+        canvas.SetActive(false);
+        currFillAmt = 10;
+    }
 
     private void Update()
     {
-        /*
-        if (isMoving && player.controller.velocity.magnitude < 0.1f)
-        {
-            if (tween != null)
-                tween.Kill();
-
-            isMoving = false;
-            tween = parentCanvasGroup.DOFade(1f, 0.75f);
-        }
-        else if (!isMoving && player.controller.velocity.magnitude > 0.15f)
-        { 
-            if (tween!=null)
-                tween.Kill();
-
-            isMoving = true;
-            tween = parentCanvasGroup.DOFade(1f, 0.75f);
-        }
-        */
-        
+        if (currFillAmt > player.currHealth && !fillChange)
+                StartCoroutine(UpdateHealth());
     }
 
-    public void UpdatePlayerHealth()
+    IEnumerator UpdateHealth()
     {
-        float duration = 0.75f * (player.currHealth / player.maxHealth);
-        healthBarImage.DOFillAmount(player.currHealth / player.maxHealth, duration);
-
-        Color newColor = Color.green;
-        if (player.currHealth < player.maxHealth * 0.25f)
+        canvas.SetActive(true);
+        fillChange = true;
+        while(healthBarImage.fillAmount > player.currHealth/10f)
         {
-            newColor = Color.red;
+            healthBarImage.fillAmount -= 0.005f;
+            yield return new WaitForSeconds(0.001f);
         }
-        else if (player.currHealth < player.maxHealth * 0.66f)
-        {
-            newColor = new Color(1f, .64f, 0f, 1f);
-        }
-
-        healthBarImage.DOColor(newColor, duration);
+        fillChange = false;
+        currFillAmt = player.currHealth;
+        yield return new WaitForSeconds(1f);
+        canvas.SetActive(false);
     }
    
 }
