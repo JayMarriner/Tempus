@@ -30,7 +30,6 @@ public class ObjectLoader : MonoBehaviour
             for (int x = 0; x < objects.Length; x++)
             {
                 objects[x].SetActive(Vector3.Distance(objects[x].transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < renderDistance);
-                print(Vector3.Distance(objects[x].transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < renderDistance);
             }
             playerOldPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         }

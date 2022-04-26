@@ -294,8 +294,11 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     public void TakeDamage(float amt)
     {
+        print("hurt: " + amt);
         //Deduct the health based on a random value.
         currHealth -= amt;
+        anim.SetTrigger("Hurt");
+        StartCoroutine(StopMoveX(1f));
     }
 
     IEnumerator FallRollTimer()
@@ -345,5 +348,12 @@ public class ThirdPersonPlayer : MonoBehaviour
             }
         }
         fallTimer = false;
+    }
+
+    IEnumerator StopMoveX(float time)
+    {
+        stopMovement = true;
+        yield return new WaitForSeconds(time);
+        stopMovement = false;
     }
 }

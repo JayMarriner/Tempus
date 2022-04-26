@@ -14,10 +14,4 @@ public class EnemyProjectile : MonoBehaviour
         body = gameObject.GetComponent<Rigidbody>();
         body.AddForce(Vector3.up * projectileSpeed, ForceMode.Impulse);        
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        print(body.velocity.y);
-    }
 }

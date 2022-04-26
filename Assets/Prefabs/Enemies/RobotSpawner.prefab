@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20439757835d6324683f428baa24eff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: 10
-  lockOnDistance: 10
+  dist: 20
+  lockOnDistance: 20
   hasLockOn: 0
   playerInArea: 0
 --- !u!114 &5120584354205198550

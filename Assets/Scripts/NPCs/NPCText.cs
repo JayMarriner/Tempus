@@ -24,7 +24,6 @@ public class NPCText : MonoBehaviour
 
     IEnumerator ReadLines()
     {
-        print(sentences.Length);
         for(int x = 0; x < sentences.Length; x++)
         {
             GetComponent<TMP_Text>().text = npcName + ": " + sentences[x];

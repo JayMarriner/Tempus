@@ -12,8 +12,8 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] bool hasLockOn;
     Vector3 minPos;
     Vector3 maxPos;
-    NavMeshAgent agent;
-    GameObject player;
+    protected NavMeshAgent agent;
+    protected GameObject player;
     bool playerLock;
     public bool playerInArea;
 
@@ -35,9 +35,7 @@ public class EnemyHandler : MonoBehaviour
 
         if (playerDist < lockOnDistance && hasLockOn)
         {
-            agent.isStopped = true;
-            gameObject.transform.LookAt(player.transform);
-            playerLock = true;
+            EnemyAction();
         }
         else if(playerDist > lockOnDistance || !hasLockOn)
         {
@@ -47,6 +45,13 @@ public class EnemyHandler : MonoBehaviour
 
         if (agent.remainingDistance < 0.01f)
             RandomWalk();
+    }
+
+    protected virtual void EnemyAction()
+    {
+        agent.isStopped = true;
+        gameObject.transform.LookAt(player.transform);
+        playerLock = true;
     }
 
     void RandomWalk()
