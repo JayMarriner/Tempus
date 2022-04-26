@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class ThirdPersonPlayer : MonoBehaviour
 {
@@ -21,11 +22,15 @@ public class ThirdPersonPlayer : MonoBehaviour
     [SerializeField]private float gravity = 9f;
 
     [Header("HealthBar")]
-    public HealthBar healthBar;
     public float currHealth, maxHealth=10f;
     
     [Header("Animation settings.")]
     [SerializeField] Animator anim;
+
+    [Header("Healthbar")]
+    [SerializeField] Image healthBar;
+    [SerializeField] GameObject healthObject;
+    bool healthChanging;
 
     InputManager inputManager;
     CharacterController controller;
@@ -47,6 +52,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     private void Start()
     {
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
+        healthObject.SetActive(false);
         controller = gameObject.GetComponent<CharacterController>();
         cam = Camera.main.transform;
         currHealth = maxHealth;
@@ -57,7 +63,7 @@ public class ThirdPersonPlayer : MonoBehaviour
         //Testing the health bar with damage. (didnt add this to input manager because it is a temp measure).
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDamage();
+            TakeDamage(2.5f);
         }         
         //Set shoulder camera to higher priority.
         if (Input.GetKeyDown(inputManager.aim))
@@ -229,13 +235,12 @@ public class ThirdPersonPlayer : MonoBehaviour
         return (Physics.Raycast(ray, 3f));
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float amt)
     {
         //Deduct the health based on a random value.
-        currHealth -= Mathf.Min(Random.value, currHealth / 4f);
-
-        //Updates the health bar based on the remaining health.
-        healthBar.UpdatePlayerHealth();
+        currHealth -= amt;
+        anim.SetTrigger("Hurt");
+        StartCoroutine(HealthTarget());
     }
 
     IEnumerator FallRollTimer()
@@ -285,5 +290,19 @@ public class ThirdPersonPlayer : MonoBehaviour
             }
         }
         fallTimer = false;
+    }
+
+    IEnumerator HealthTarget()
+    {
+        healthChanging = true;
+        healthObject.SetActive(true);
+        while(healthBar.fillAmount > currHealth / 10)
+        {
+            healthBar.fillAmount -= 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(1f);
+        healthObject.SetActive(false);
+        healthChanging = false;
     }
 }
