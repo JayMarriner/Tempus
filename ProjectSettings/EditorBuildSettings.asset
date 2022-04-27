@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/PortalRoom.unity
+    guid: 3eb714163d082684fbae3cf16d57ed1e
+  - enabled: 1
     path: Assets/Scenes/MedievalLevel.unity
     guid: 581baafd03f74fc4bb6271441d82e0b8
+  - enabled: 1
+    path: Assets/Scenes/JapanLevel.unity
+    guid: 75469b72c5c361b4280753b4845bf706
+  - enabled: 1
+    path: Assets/Scenes/FutureLevel.unity
+    guid: 88cceae31fafd3442a9f7470b79f68cf
   m_configObjects: {}
