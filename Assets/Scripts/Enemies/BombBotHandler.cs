@@ -50,7 +50,8 @@ public class BombBotHandler : EnemyHandler
         particle.Play();
         player.GetComponent<ThirdPersonPlayer>().TakeDamage(2.5f);
         yield return new WaitForSeconds(0.6f);
-        robotInfo.shooterScript.currentAmt--;
+        if(robotInfo.shooterScript != null)
+            robotInfo.shooterScript.currentAmt--;
         Destroy(gameObject);
     }
 }

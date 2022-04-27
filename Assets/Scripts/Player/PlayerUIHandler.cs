@@ -7,6 +7,7 @@ public class PlayerUIHandler : MonoBehaviour
     [SerializeField] GameObject WeaponWheel;
     [SerializeField] GameObject reticle;
     [SerializeField] WeaponHandler weaponHandler;
+    [SerializeField] GameObject cheats;
     ThirdPersonPlayer playerScript;
     InputManager inputManager;
 
@@ -30,6 +31,16 @@ public class PlayerUIHandler : MonoBehaviour
         //If the player is in shoulder view and the weapon isn't a gun but the reticle is turned on then turn it off.
         else if (playerScript.shoulderView && weaponHandler.getCurrentWeapon == 1 && reticle.activeSelf)
             reticle.SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            cheats.SetActive(!cheats.activeSelf);
+            if (cheats.activeSelf)
+                Cursor.lockState = CursorLockMode.None;
+            else
+                Cursor.lockState = CursorLockMode.Locked;
+        }
+
     }
 
     void WeaponUI()

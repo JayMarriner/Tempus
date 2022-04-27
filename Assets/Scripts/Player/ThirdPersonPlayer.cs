@@ -44,6 +44,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     bool jogging;
     bool jumped;
     bool fallTimer;
+    public bool invincible;
 
     [Header("Bool settings.")]
     public bool shoulderView;
@@ -294,7 +295,8 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     public void TakeDamage(float amt)
     {
-        print("hurt: " + amt);
+        if (invincible)
+            return;
         //Deduct the health based on a random value.
         currHealth -= amt;
         anim.SetTrigger("Hurt");

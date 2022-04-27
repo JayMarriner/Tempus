@@ -21,17 +21,23 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        if (currFillAmt > player.currHealth && !fillChange)
+        if (currFillAmt > player.currHealth && !fillChange || currFillAmt < player.currHealth && !fillChange)
                 StartCoroutine(UpdateHealth());
     }
 
     IEnumerator UpdateHealth()
     {
+
         canvas.SetActive(true);
         fillChange = true;
         while(healthBarImage.fillAmount > player.currHealth/10f)
         {
             healthBarImage.fillAmount -= 0.005f;
+            yield return new WaitForSeconds(0.001f);
+        }
+        while (healthBarImage.fillAmount < player.currHealth / 10f)
+        {
+            healthBarImage.fillAmount += 0.005f;
             yield return new WaitForSeconds(0.001f);
         }
         fillChange = false;
