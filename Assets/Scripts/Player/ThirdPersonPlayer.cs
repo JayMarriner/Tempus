@@ -23,6 +23,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     [Header("HealthBar")]
     public HealthBar healthBar;
     public float currHealth, maxHealth = 10f;
+    [SerializeField] GameObject GameOverUI;
     
     [Header("Animation settings.")]
     [SerializeField] Animator anim;
@@ -71,6 +72,15 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Update()
     {
+        if(currHealth <= 0)
+        {
+            stopMovement = true;
+            stopCamMove = true;
+            anim.SetLayerWeight(1, 0);
+            anim.SetTrigger("Dead");
+            StartCoroutine(Dead());
+        }
+
         //Updates  bool when jetpack is false.
         if (!jetpack.activeSelf && usingJetpack)
             usingJetpack = false;
@@ -361,5 +371,20 @@ public class ThirdPersonPlayer : MonoBehaviour
         stopMovement = true;
         yield return new WaitForSeconds(time);
         stopMovement = false;
+    }
+
+    IEnumerator Dead()
+    {
+        float x = 1;
+        while (x > 0.3f)
+        {
+            Time.timeScale = x;
+            x -= 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(1f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameOverUI.SetActive(true);
     }
 }

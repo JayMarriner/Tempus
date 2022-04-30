@@ -8,6 +8,7 @@ public class Cheats : MonoBehaviour
     ThirdPersonPlayer playerScript;
     [SerializeField] GameObject bomberEnemy;
     [SerializeField] GameObject playerHead;
+    [SerializeField] GameObject playerObj;
     [SerializeField] Animator anim;
     
     // Start is called before the first frame update
@@ -47,7 +48,12 @@ public class Cheats : MonoBehaviour
         playerHead.transform.localScale = new Vector3(5, 5, 5);
         anim.SetLayerWeight(1, 1);
         anim.SetBool("BigHead", true);
-        print("Yes");
+    }
+
+    public void BigPlayer()
+    {
+        playerObj.transform.localScale = new Vector3(5, 5, 5);
+        playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 10, playerObj.transform.position.z);
     }
 
     IEnumerator SpawnBangers()

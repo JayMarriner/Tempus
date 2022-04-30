@@ -24,7 +24,11 @@ public class KatanaHit : MonoBehaviour
     void Update()
     {
         if (uiFill.fillAmount >= 1f && Input.GetKeyDown(KeyCode.F) && GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>().IsGrounded())
+        {
             kH.SpecialAttack();
+            uiFill.fillAmount = 0;
+            uiText.text = "POWER";
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,7 +39,7 @@ public class KatanaHit : MonoBehaviour
             {
                 other.GetComponent<RobotInfo>().LowerHealth(50);
                 uiKanji.rectTransform.sizeDelta = Vector2.Lerp(new Vector2(100, 100), new Vector2(300, 150), Time.deltaTime * 2);
-                uiFill.fillAmount += 1f;
+                uiFill.fillAmount += 0.2f;
                 if (uiFill.fillAmount >= 1f)
                     uiText.text = "PRESS 'F'";
             }
@@ -45,7 +49,7 @@ public class KatanaHit : MonoBehaviour
                 other.GetComponent<SpawnerHealth>().LowerHealth(100);
                 uiKanji.rectTransform.sizeDelta = Vector2.Lerp(new Vector2(100, 100), new Vector2(150, 150), Time.deltaTime * 10);
                 uiFill.fillAmount += 0.25f;
-                if (uiFill.fillAmount >= 1f)
+                if (uiFill.fillAmount >= 0.1f)
                     uiText.text = "PRESS 'F'";
             }
         }
