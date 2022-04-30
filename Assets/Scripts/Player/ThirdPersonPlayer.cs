@@ -45,6 +45,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     bool jumped;
     bool fallTimer;
     public bool invincible;
+    public bool specialHit;
 
     [Header("Bool settings.")]
     public bool shoulderView;
@@ -108,11 +109,14 @@ public class ThirdPersonPlayer : MonoBehaviour
             falling = false;
         }
 
+        if (!stopMovement)
+        {
+            Jump();
+            Movement();
+            ToggleJetpack();
+        }
 
-        Jump();
-        Movement();
         JetpackStatus();
-        ToggleJetpack();
     }
 
     void Movement()
@@ -277,7 +281,7 @@ public class ThirdPersonPlayer : MonoBehaviour
         }
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         //Send ray down from player.
         Ray ray = new Ray(new Vector3(controller.bounds.center.x, (controller.bounds.center.y - controller.bounds.extents.y), controller.bounds.center.z), Vector3.down);

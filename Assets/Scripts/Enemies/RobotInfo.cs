@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RobotInfo : MonoBehaviour
 {
-    float health = 100;
+    [SerializeField] float health = 100;
+    public float GetHealth { get => health; }
     public Shooter shooterScript;
 
     private void Update()
@@ -17,7 +18,7 @@ public class RobotInfo : MonoBehaviour
         health -= amt;
         if(health <= 0)
         {
-            shooterScript.currentAmt--;
+            //shooterScript.currentAmt--;
             Destroy(gameObject);
         }
     }

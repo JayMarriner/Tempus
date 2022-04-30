@@ -28,6 +28,9 @@ public class EnemyHandler : MonoBehaviour
 
     private void Update()
     {
+        if(player ==null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
         float playerDist = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
         if (playerDist < lockOnDistance)
@@ -42,6 +45,8 @@ public class EnemyHandler : MonoBehaviour
             agent.isStopped = false;
         }
 
+        if (player.GetComponent<ThirdPersonPlayer>().specialHit)
+            print(Vector3.Distance(player.transform.position, gameObject.transform.position));
 
         if (agent.remainingDistance < 0.01f)
             RandomWalk();

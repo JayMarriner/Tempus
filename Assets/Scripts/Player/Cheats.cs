@@ -7,6 +7,8 @@ public class Cheats : MonoBehaviour
 {
     ThirdPersonPlayer playerScript;
     [SerializeField] GameObject bomberEnemy;
+    [SerializeField] GameObject playerHead;
+    [SerializeField] Animator anim;
     
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,14 @@ public class Cheats : MonoBehaviour
     public void Invincible()
     {
         playerScript.invincible = true;
+    }
+
+    public void BigHead()
+    {
+        playerHead.transform.localScale = new Vector3(5, 5, 5);
+        anim.SetLayerWeight(1, 1);
+        anim.SetBool("BigHead", true);
+        print("Yes");
     }
 
     IEnumerator SpawnBangers()

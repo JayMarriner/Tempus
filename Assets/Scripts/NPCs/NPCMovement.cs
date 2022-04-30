@@ -36,13 +36,10 @@ public class NPCMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (gameObject.activeSelf)
         {
-            print(currentLoopPos);
             agent.SetDestination(targetPos[currentLoopPos].position);
             animController.SetBool("walking", true);
-            print("Dest set: " + agent.remainingDistance);
             while (agent.remainingDistance > 0.01f)
             {
-                print("yes");
                 yield return new WaitForSeconds(0.1f);
             }
             animController.SetBool("walking", false);

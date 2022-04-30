@@ -71,6 +71,7 @@ public class WeaponHandler : MonoBehaviour
                 currentActive.SetActive(false);
             currentActive = null;
         }
+        
         else
         {
             //Fail safe for exceeding the weapons limit, if you get this error most likely the arrays are wrong in the editor, probably won't be code related.
@@ -79,17 +80,31 @@ public class WeaponHandler : MonoBehaviour
             //Else we set the corrosponding weapon that was passed through to active and the last weapon to inactive.
             else
             {
-                anim.SetLayerWeight(1, 1);
-                if (!leftHand.GetComponent<FastIKFabric>().enabled)
+                if (weaponInt == 4)
                 {
-                    leftHand.GetComponent<FastIKFabric>().enabled = true;
-                    rightHand.GetComponent<FastIKFabric>().enabled = true;
-                }
+                    if (leftHand.GetComponent<FastIKFabric>().enabled)
+                    {
+                        leftHand.GetComponent<FastIKFabric>().enabled = false;
+                        rightHand.GetComponent<FastIKFabric>().enabled = false;
+                    }
 
-                leftHand.GetComponent<FastIKFabric>().Target = leftHandTarget[weaponInt - 1].transform;
-                rightHand.GetComponent<FastIKFabric>().Target = rightHandTarget[weaponInt - 1].transform;
-                leftHand.GetComponent<FastIKFabric>().Pole = leftElbowTarget[weaponInt - 1].transform;
-                rightHand.GetComponent<FastIKFabric>().Pole = rightElbowTarget[weaponInt - 1].transform;
+                    anim.SetLayerWeight(1, 1);
+                }
+                else
+                {
+                    anim.SetLayerWeight(1, 1);
+                    if (!leftHand.GetComponent<FastIKFabric>().enabled)
+                    {
+                        leftHand.GetComponent<FastIKFabric>().enabled = true;
+                        rightHand.GetComponent<FastIKFabric>().enabled = true;
+                    }
+
+                    leftHand.GetComponent<FastIKFabric>().Target = leftHandTarget[weaponInt - 1].transform;
+                    rightHand.GetComponent<FastIKFabric>().Target = rightHandTarget[weaponInt - 1].transform;
+                    leftHand.GetComponent<FastIKFabric>().Pole = leftElbowTarget[weaponInt - 1].transform;
+                    rightHand.GetComponent<FastIKFabric>().Pole = rightElbowTarget[weaponInt - 1].transform;
+                }
+                
                 //If there's currently an active item then we will set it to false.
                 if (currentActive != null)
                     currentActive.SetActive(false);
