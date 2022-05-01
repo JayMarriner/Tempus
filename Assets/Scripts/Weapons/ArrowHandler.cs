@@ -37,7 +37,7 @@ public class ArrowHandler : MonoBehaviour
 
         if(other.tag == "Spawner")
         {
-            other.GetComponent<SpawnerHealth>().LowerHealth(50);
+            other.GetComponent<RobotInfo>().LowerHealth(50);
             Destroy(gameObject);
         }
     }

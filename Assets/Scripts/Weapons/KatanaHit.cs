@@ -46,7 +46,7 @@ public class KatanaHit : MonoBehaviour
 
             if (other.tag == "Spawner")
             {
-                other.GetComponent<SpawnerHealth>().LowerHealth(100);
+                other.GetComponent<RobotInfo>().LowerHealth(100);
                 uiKanji.rectTransform.sizeDelta = Vector2.Lerp(new Vector2(100, 100), new Vector2(150, 150), Time.deltaTime * 10);
                 uiFill.fillAmount += 0.25f;
                 if (uiFill.fillAmount >= 0.1f)

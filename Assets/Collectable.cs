@@ -7,7 +7,10 @@ public class Collectable : MonoBehaviour
     public enum ObjType
     {
         jetpack,
-        bow
+        bow,
+        katana,
+        portal,
+        scifi
     };
 
     [Header("Collectable")]
@@ -22,13 +25,41 @@ public class Collectable : MonoBehaviour
     [SerializeField] private float changeAmt; 
     [SerializeField] private float startPos;
     public float speed = 1f;
+
+    [Header("Different objects")]
+    [SerializeField] GameObject bow;
+    [SerializeField] GameObject katana;
+    [SerializeField] GameObject portal;
+    [SerializeField] GameObject scifi;
+    [SerializeField] GameObject jetpack;
+
+    GameManager manager;
     
     
 
     private void Start()
     {
         startPos = transform.position.y;
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
 
+        switch (type)
+        {
+            case ObjType.bow:
+                bow.SetActive(true);
+                break;
+            case ObjType.katana:
+                katana.SetActive(true);
+                break;
+            case ObjType.portal:
+                portal.SetActive(true);
+                break;
+            case ObjType.scifi:
+                scifi.SetActive(true);
+                break;
+            case ObjType.jetpack:
+                jetpack.SetActive(true);
+                break;
+        }
     }
 
     private void Update()
@@ -72,7 +103,25 @@ public class Collectable : MonoBehaviour
                 other.GetComponent<ThirdPersonPlayer>().jetScript.HasJetPack = true;
                 other.GetComponent<ThirdPersonPlayer>().jetScript.isEquipped = true;
             }
-            Destroy(collectableObject);
+            else
+            {
+                switch (type)
+                {
+                    case ObjType.bow:
+                        manager.weaponsActive[1] = true;
+                        break;
+                    case ObjType.katana:
+                        manager.weaponsActive[4] = true;
+                        break;
+                    case ObjType.portal:
+                        manager.weaponsActive[2] = true;
+                        break;
+                    case ObjType.scifi:
+                        manager.weaponsActive[3] = true;
+                        break;
+                }
+            }
+            Destroy(gameObject);
         }
     }
 }

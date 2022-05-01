@@ -16,6 +16,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] GameObject[] leftElbowTarget;
     [SerializeField] GameObject[] rightElbowTarget;
     InputManager inputManager;
+    GameManager manager;
     GameObject currentActive;
     int currentWeapon;
     public int getCurrentWeapon { get => currentWeapon; }
@@ -27,7 +28,7 @@ public class WeaponHandler : MonoBehaviour
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
         foreach (GameObject obj in weapons)
             obj.SetActive(false);
-
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
         leftHand.GetComponent<FastIKFabric>().enabled = false;
         rightHand.GetComponent<FastIKFabric>().enabled = false;
         anim.SetLayerWeight(1, 0);
@@ -42,8 +43,13 @@ public class WeaponHandler : MonoBehaviour
             EnableWeapon(1);
         else if (Input.GetKeyDown(inputManager.weaponSwitch3))
             EnableWeapon(2);
+        else if (Input.GetKeyDown(inputManager.weaponSwitch4))
+            EnableWeapon(3);
+        else if (Input.GetKeyDown(inputManager.weaponSwitch5))
+            EnableWeapon(4);
 
-        if(Input.GetAxis("Mouse ScrollWheel") < 0f)
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             NextWeapon();
         }
@@ -74,6 +80,8 @@ public class WeaponHandler : MonoBehaviour
         
         else
         {
+            if (!manager.weaponsActive[weaponInt])
+                return;
             //Fail safe for exceeding the weapons limit, if you get this error most likely the arrays are wrong in the editor, probably won't be code related.
             if (weaponInt - 1 > weapons.Length)
                 print("Exceeds amount of weapons...");
@@ -122,6 +130,12 @@ public class WeaponHandler : MonoBehaviour
         int nextWeapon = currentWeapon+=1;
         if (nextWeapon > weapons.Length)
             nextWeapon = 0;
+        while (!manager.weaponsActive[nextWeapon])
+        {
+            nextWeapon += 1;
+            if (nextWeapon > weapons.Length)
+                nextWeapon = 0;
+        }
         EnableWeapon(nextWeapon);
     }
 
@@ -130,6 +144,12 @@ public class WeaponHandler : MonoBehaviour
         int nextWeapon = currentWeapon-=1;
         if (nextWeapon < 0)
             nextWeapon = weapons.Length;
+        while (!manager.weaponsActive[nextWeapon])
+        {
+            nextWeapon -= 1;
+            if (nextWeapon < 0)
+                nextWeapon = weapons.Length;
+        }
         EnableWeapon(nextWeapon);
     }
 }
