@@ -2,27 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager:MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager Instance { get { return _instance; } }
-    public bool[] weaponsActive = { true, false, false, false, false};
+    public bool[] weaponsActive = { true, false, false, false, false };
 
-    private void Awake()
+    static GameManager _instance;
+    public static GameManager instance
     {
-        if (_instance != null && _instance != this)
+        get
         {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
+            if (_instance == null)
+            {
+                GameObject manager = GameObject.FindGameObjectWithTag("Manager");
+                _instance = manager.AddComponent<GameManager>();
+                DontDestroyOnLoad(manager);
+            }
+            return _instance;
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            if (this != _instance)
+                Destroy(this.gameObject);
+        }
     }
 }

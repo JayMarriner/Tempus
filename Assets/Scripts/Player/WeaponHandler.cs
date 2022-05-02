@@ -28,7 +28,7 @@ public class WeaponHandler : MonoBehaviour
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InputManager>();
         foreach (GameObject obj in weapons)
             obj.SetActive(false);
-        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<GameManager>();
         leftHand.GetComponent<FastIKFabric>().enabled = false;
         rightHand.GetComponent<FastIKFabric>().enabled = false;
         anim.SetLayerWeight(1, 0);

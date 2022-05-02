@@ -33,6 +33,9 @@ public class ThirdPersonPlayer : MonoBehaviour
     public Jetpack jetScript;
     public bool usingJetpack;
 
+    [Header("MenuUI")]
+    [SerializeField] GameObject menu;
+
     InputManager inputManager;
     public CharacterController controller { get; private set; }
     Transform cam;
@@ -72,6 +75,11 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu();
+        }
+
         if(currHealth <= 0)
         {
             stopMovement = true;
@@ -127,6 +135,25 @@ public class ThirdPersonPlayer : MonoBehaviour
         }
 
         JetpackStatus();
+    }
+
+    public void PauseMenu()
+    {
+        menu.SetActive(!menu.activeSelf);
+        stopMovement = menu.activeSelf;
+        stopCamMove = menu.activeSelf;
+        if (menu.activeSelf)
+        {
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     void Movement()

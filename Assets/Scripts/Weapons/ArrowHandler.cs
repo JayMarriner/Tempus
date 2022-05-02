@@ -17,7 +17,10 @@ public class ArrowHandler : MonoBehaviour
     void Update()
     {
         if (isFired && !lifeStarted)
+        {
             StartCoroutine(LifeTime());
+            gameObject.GetComponent<AudioSource>().Play();
+        }
     }
 
     IEnumerator LifeTime()

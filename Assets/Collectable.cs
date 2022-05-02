@@ -40,7 +40,7 @@ public class Collectable : MonoBehaviour
     private void Start()
     {
         startPos = transform.position.y;
-        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<GameManager>();
 
         switch (type)
         {

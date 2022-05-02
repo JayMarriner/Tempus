@@ -12,6 +12,7 @@ public class TalkerHandler : MonoBehaviour
     [SerializeField] GameObject alertCanvas;
     [SerializeField] CinemachineVirtualCamera cinCamera;
     [SerializeField] Image blackFade;
+    [SerializeField] GameObject interactUI;
 
     [Header("Camera control settings")]
     [Range(1,10)]
@@ -37,6 +38,7 @@ public class TalkerHandler : MonoBehaviour
     {
         if(playerInArea && Input.GetKeyDown(inputManager.interact) && !inCutscene)
         {
+            Destroy(interactUI);
             inCutscene = true;
             StartCoroutine(Fader(true));
             StartCoroutine(ControlCam());
@@ -52,12 +54,16 @@ public class TalkerHandler : MonoBehaviour
     {
         if (other.tag == "Player")
             playerInArea = true;
+        if(interactUI != null)
+            interactUI.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
             playerInArea = false;
+        if(interactUI != null)
+            interactUI.SetActive(false);
     }
 
     IEnumerator Fader(bool startConv)
