@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RobotInfo : MonoBehaviour
 {
@@ -18,10 +19,6 @@ public class RobotInfo : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>();
     }
-    private void Update()
-    {
-        
-    }
 
     public void LowerHealth(int amt)
     {
@@ -31,11 +28,15 @@ public class RobotInfo : MonoBehaviour
         {
             if (isDummy)
             {
-                Destroy(door);
-                //Camera stuff can go here.
-                //player.stopMovement = true;
+                StartCoroutine(StartLoadToPortalRoom());                               
             }
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator StartLoadToPortalRoom()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(1);
     }
 }

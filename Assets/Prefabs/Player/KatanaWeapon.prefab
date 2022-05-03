@@ -113,6 +113,9 @@ MonoBehaviour:
   katanaObj: {fileID: 2575398203318839651}
   powerMultiplier: 3
   playerAnimator: {fileID: 0}
+  trail: {fileID: 0}
+  swinging: 0
+  slashing: 0
 --- !u!1 &8335233142795455519
 GameObject:
   m_ObjectHideFlags: 0
