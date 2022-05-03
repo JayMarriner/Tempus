@@ -4984,6 +4984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthImg: {fileID: 2340709014698578730}
+  isDummy: 0
+  door: {fileID: 0}
   shooterScript: {fileID: 0}
 --- !u!135 &702340527034030786
 SphereCollider:

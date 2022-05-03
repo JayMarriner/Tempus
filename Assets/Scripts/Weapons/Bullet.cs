@@ -25,4 +25,22 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<RobotInfo>().LowerHealth(15);
+        }
+
+        if (other.tag == "Spawner")
+        {
+            other.GetComponent<RobotInfo>().LowerHealth(25);
+        }
+        
+        if (other.tag == "Boss")
+        {
+            other.GetComponent<RobotInfo>().LowerHealth(5);
+        }
+    }
 }

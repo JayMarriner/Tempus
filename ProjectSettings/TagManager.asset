@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Spawner
   - Arrow
+  - Boss
   layers:
   - Default
   - TransparentFX

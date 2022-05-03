@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MbSword : MonoBehaviour
 {
+    [SerializeField] MedBoss mainScript;
     bool cooldown;
     // Start is called before the first frame update
     void Start()
     {
-        
+        cooldown = false;
     }
 
     // Update is called once per frame
@@ -19,10 +20,11 @@ public class MbSword : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (cooldown = false && other.tag == "Player")
+        if (cooldown == false && mainScript.isHitting && other.tag == "Player")
         {
             cooldown = true;
             other.GetComponent<ThirdPersonPlayer>().TakeDamage(2.5f);
+            StartCoroutine(Cool());
         }
     }
 

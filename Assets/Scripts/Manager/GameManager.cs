@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool[] weaponsActive = { true, false, false, false, false };
+    public bool[] portalsActive = { true, false, false };
 
     static GameManager _instance;
     public static GameManager instance

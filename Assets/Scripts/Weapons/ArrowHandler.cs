@@ -43,5 +43,11 @@ public class ArrowHandler : MonoBehaviour
             other.GetComponent<RobotInfo>().LowerHealth(50);
             Destroy(gameObject);
         }
+
+        if (other.tag == "Boss")
+        {
+            other.GetComponent<RobotInfo>().LowerHealth(10);
+            Destroy(gameObject);
+        }
     }
 }

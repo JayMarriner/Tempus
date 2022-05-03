@@ -36,9 +36,17 @@ public class PlayerUIHandler : MonoBehaviour
         {
             cheats.SetActive(!cheats.activeSelf);
             if (cheats.activeSelf)
+            {
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0;
+            }
             else
+            {
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1;
+            }
         }
 
     }

@@ -8,10 +8,12 @@ public class RobotInfo : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] Image healthImg;
     [SerializeField] bool isDummy;
+    [SerializeField] bool isBoss;
     [SerializeField] GameObject door;
     public float GetHealth { get => health; }
     public Shooter shooterScript;
     ThirdPersonPlayer player;
+    bool bossIsDying;
 
 
     private void Start()
@@ -27,8 +29,19 @@ public class RobotInfo : MonoBehaviour
     {
         health -= amt;
         healthImg.fillAmount = health/100;
-        if(health <= 0)
+        if (isBoss)
         {
+            GetComponentInChildren<Animator>().SetTrigger("Hit");
+        }
+        if (health <= 0)
+        {
+            if (isBoss)
+            {
+                GetComponent<MedBoss>().stopMovement = true;
+                if(!bossIsDying)
+                    StartCoroutine(BossDeath());
+                return;
+            }
             if (isDummy)
             {
                 Destroy(door);
@@ -37,5 +50,13 @@ public class RobotInfo : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator BossDeath()
+    {
+        bossIsDying = true;
+        GetComponentInChildren<Animator>().SetTrigger("Dead");
+        yield return new WaitForSeconds(6f);
+        Destroy(gameObject);
     }
 }

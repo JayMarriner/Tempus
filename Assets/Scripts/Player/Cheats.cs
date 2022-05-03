@@ -56,6 +56,16 @@ public class Cheats : MonoBehaviour
         playerObj.transform.position = new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 10, playerObj.transform.position.z);
     }
 
+    public void AllWeapons()
+    {
+        GameManager manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<GameManager>();
+        manager.weaponsActive[0] = true;
+        manager.weaponsActive[1] = true;
+        manager.weaponsActive[2] = true;
+        manager.weaponsActive[3] = true;
+        manager.weaponsActive[4] = true;
+    }
+
     IEnumerator SpawnBangers()
     {
         int amt = 0;

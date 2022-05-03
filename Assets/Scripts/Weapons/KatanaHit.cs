@@ -52,6 +52,15 @@ public class KatanaHit : MonoBehaviour
                 if (uiFill.fillAmount >= 0.1f)
                     uiText.text = "PRESS 'F'";
             }
+
+            if (other.tag == "Boss")
+            {
+                other.GetComponent<RobotInfo>().LowerHealth(25);
+                uiKanji.rectTransform.sizeDelta = Vector2.Lerp(new Vector2(100, 100), new Vector2(150, 150), Time.deltaTime * 10);
+                uiFill.fillAmount += 0.25f;
+                if (uiFill.fillAmount >= 0.1f)
+                    uiText.text = "PRESS 'F'";
+            }
         }
     }
 }
