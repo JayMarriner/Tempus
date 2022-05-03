@@ -10,6 +10,7 @@ TagManager:
   - Collectable
   - Enemy
   - Spawner
+  - Arrow
   layers:
   - Default
   - TransparentFX
