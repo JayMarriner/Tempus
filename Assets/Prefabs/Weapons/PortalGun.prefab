@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 51960387014248070, guid: a3c5fbfb8d8abf9429eab766ac5d96ee, type: 3}
   spawnPoint: {fileID: 7275639057787093050}
-  bulletSpeed: 25
+  bulletSpeed: 50
 --- !u!1 &2076052444258337397
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86355fd381e74904d8c4ae5cb3042ce3, type: 2}
+  - {fileID: 2100000, guid: 055c50d3690c6d34882255121863533f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -218,7 +218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86355fd381e74904d8c4ae5cb3042ce3, type: 2}
+  - {fileID: 2100000, guid: 055c50d3690c6d34882255121863533f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -299,7 +299,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 338331ad999b8f64ea3b5ece285b2f09, type: 2}
+  - {fileID: 2100000, guid: 055c50d3690c6d34882255121863533f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 338331ad999b8f64ea3b5ece285b2f09, type: 2}
+  - {fileID: 2100000, guid: 1b2c537fa07dd2e45bee9d43cf411fc9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -461,7 +461,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f710c21ca0f189046b06d03e6b4ea73c, type: 2}
+  - {fileID: 2100000, guid: 1b2c537fa07dd2e45bee9d43cf411fc9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

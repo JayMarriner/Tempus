@@ -13,6 +13,12 @@ public class PortalBullet : Bullet
         //Extension of the Bullet class.
         base.Start();
         portalManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<PortalManager>();
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            portalManager.cntrl = true;
+        }
+        else
+            portalManager.cntrl = false;
     }
 
 

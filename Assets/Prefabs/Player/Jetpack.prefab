@@ -9704,8 +9704,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd164a49a553f94fa8744e335162822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFuel: 4
+  maxFuel: 2
   currFuel: 0
   effect1: {fileID: 0}
   effect2: {fileID: 0}
   isEquipped: 0
+  fuelFill: {fileID: 0}

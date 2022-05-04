@@ -7,6 +7,17 @@ public class Teleporter : MonoBehaviour
     public Vector3 targetPos;
     public bool targetSet;
     [SerializeField] public GameObject[] cams = new GameObject[2];
+    [SerializeField] GameObject p1;
+    [SerializeField] GameObject p2;
+    public bool isFirst;
+
+    private void Start()
+    {
+        if (isFirst)
+            p1.SetActive(true);
+        else
+            p2.SetActive(true);
+    }
     private void OnTriggerEnter(Collider other)
     {
         //If the collider is the player then...

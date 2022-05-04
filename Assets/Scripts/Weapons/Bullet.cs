@@ -30,17 +30,18 @@ public class Bullet : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.GetComponent<RobotInfo>().LowerHealth(15);
+            other.GetComponent<RobotInfo>().LowerHealth(5);
         }
 
         if (other.tag == "Spawner")
         {
-            other.GetComponent<RobotInfo>().LowerHealth(25);
+            other.GetComponent<RobotInfo>().LowerHealth(10);
         }
         
         if (other.tag == "Boss")
         {
-            other.GetComponent<RobotInfo>().LowerHealth(5);
+            other.GetComponent<RobotInfo>().LowerHealth(1);
         }
+        Destroy(gameObject);
     }
 }

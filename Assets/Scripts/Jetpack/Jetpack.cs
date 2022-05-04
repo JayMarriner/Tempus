@@ -10,7 +10,7 @@ public class Jetpack : MonoBehaviour
     private InputManager inputManager;
 
     [Header("Fuel")]
-    [SerializeField] public float maxFuel = 4f;
+    [SerializeField] public float maxFuel = 2f;
     [SerializeField] public float currFuel;
 
     [Header("Effects")]
@@ -23,6 +23,11 @@ public class Jetpack : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] Image fuelFill;
+
+    bool stopFly;
+    bool cheatStop;
+    int timesPressed;
+    float drainMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +53,10 @@ public class Jetpack : MonoBehaviour
     {
         if (isEquipped)
         {
-            if (Input.GetKey(inputManager.useJetpack) && currFuel > 0f)
+            if (Input.GetKey(inputManager.useJetpack) && currFuel > 0f && !stopFly)
             {
                 tpp.usingJetpack = true;
-                currFuel -= Time.deltaTime;
+                currFuel -= Time.deltaTime * drainMultiplier;
                 fuelFill.fillAmount = currFuel / maxFuel;
                 effect1.Play();
                 effect2.Play();
@@ -64,10 +69,30 @@ public class Jetpack : MonoBehaviour
                 effect2.Stop();
             }
 
+            /*if (Input.GetKeyUp(inputManager.useJetpack) && !stopFly)
+            {
+                stopFly = true;
+                StartCoroutine(Buffer());
+            }*/
+
+            if (Input.GetKeyUp(inputManager.useJetpack))
+            {
+                drainMultiplier += 0.1f;
+            }
+
             if (tpp.controller.isGrounded)
-                StartCoroutine(Refuel());
+                drainMultiplier = 1;
+
+            /*if (tpp.controller.isGrounded)
+                StartCoroutine(Refuel());*/
         }
 
+    }
+
+    public void AddFuel()
+    {
+        currFuel = maxFuel;
+        fuelFill.fillAmount = currFuel / maxFuel;
     }
 
     IEnumerator Refuel()
@@ -78,5 +103,11 @@ public class Jetpack : MonoBehaviour
             fuelFill.fillAmount = currFuel / maxFuel;
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    IEnumerator Buffer()
+    {
+        yield return new WaitForSeconds(1f);
+        stopFly = false;
     }
 }

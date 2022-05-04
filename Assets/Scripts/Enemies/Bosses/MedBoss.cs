@@ -9,18 +9,20 @@ public class MedBoss : MonoBehaviour
     [Range(1,100)]
     [SerializeField] int lockOnDist;
     [Range(1,50)]
-    [SerializeField] int attackDist;
-    [SerializeField] Animator anim;
+    [SerializeField] protected int attackDist;
+    [SerializeField] protected Animator anim;
     [Header("UI Stuff")]
     [SerializeField] GameObject canvasBoss;
     [SerializeField] Image fillImage;
     [SerializeField] GameObject key;
-    ThirdPersonPlayer player;
-    NavMeshAgent nav;
+    protected ThirdPersonPlayer player;
+    protected NavMeshAgent nav;
     public bool stopMovement;
-    float playerDistance;
+    protected float playerDistance;
     bool filled;
     public bool isHitting;
+
+    [SerializeField] bool isFuture;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +58,7 @@ public class MedBoss : MonoBehaviour
         anim.SetBool("Walk", !nav.isStopped);
     }
 
-    void Attack()
+    protected virtual void Attack()
     {
         if(playerDistance < attackDist)
         {

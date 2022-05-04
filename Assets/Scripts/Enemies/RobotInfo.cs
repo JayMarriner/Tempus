@@ -48,6 +48,7 @@ public class RobotInfo : MonoBehaviour
                 //Camera stuff can go here.
                 //player.stopMovement = true;
             }
+
             Destroy(gameObject);
         }
     }

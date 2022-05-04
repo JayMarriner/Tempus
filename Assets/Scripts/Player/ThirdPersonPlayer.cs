@@ -47,6 +47,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     bool running;
     bool jogging;
     bool jumped;
+    public bool jumpBuff;
     bool fallTimer;
     public bool invincible;
     public bool specialHit;
@@ -87,6 +88,12 @@ public class ThirdPersonPlayer : MonoBehaviour
             anim.SetLayerWeight(1, 0);
             anim.SetTrigger("Dead");
             StartCoroutine(Dead());
+        }
+
+        if (Input.GetKeyUp(inputManager.useJetpack))
+        {
+            jumpBuff = true;
+            StartCoroutine(JumpBuffer());
         }
 
         //Updates  bool when jetpack is false.
@@ -135,6 +142,12 @@ public class ThirdPersonPlayer : MonoBehaviour
         }
 
         JetpackStatus();
+    }
+
+    IEnumerator JumpBuffer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        jumpBuff = false;
     }
 
     public void PauseMenu()
@@ -261,14 +274,14 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKey(inputManager.useJetpack) && jetpack.activeSelf && jetScript.currFuel > 0)
+        if (Input.GetKey(inputManager.useJetpack) && jetpack.activeSelf && jetScript.currFuel > 0 && !jumpBuff)
         {
             usingJetpack = true;
-            vertVel.y = jumpForce;
+            vertVel.y = jumpForce/2;
             anim.SetBool("Floating", true);
         }
         //Apply jump.
-        else if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        else if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumpBuff)
         {
             if (running)
                 vertVel.y = jumpForce;
@@ -348,7 +361,7 @@ public class ThirdPersonPlayer : MonoBehaviour
     {
         if (fallTimer)
         {
-            anim.SetBool("FallRoll", false);
+            //anim.SetBool("FallRoll", false);
             anim.SetBool("HardLand", false);
             yield break;
         }
@@ -361,10 +374,10 @@ public class ThirdPersonPlayer : MonoBehaviour
             //Waits until the player has reached the floor whilst constantly checking what buttons the player is pressing - this stops the check from accidentally doing wrong anim.
             while (!IsGrounded())
             {
-                if (running)
+                /*if (running)
                     anim.SetBool("FallRoll", true);
                 else
-                    anim.SetBool("FallRoll", false);
+                    anim.SetBool("FallRoll", false);*/
                 if (!running)
                     anim.SetBool("HardLand", true);
                 else
@@ -375,19 +388,17 @@ public class ThirdPersonPlayer : MonoBehaviour
             if (!running)
             {
                 anim.SetBool("HardLand", true);
-                stopMovement = true;
                 yield return new WaitForSeconds(1f);
                 anim.SetBool("HardLand", false);
-                stopMovement = false;
             }
             //If the player was running then the roll animation will play.
             else
             {
-                anim.SetBool("FallRoll", true);
-                stopMovement = true;
+                //anim.SetBool("FallRoll", true);
+                //stopMovement = true;
                 yield return new WaitForSeconds(0.5f);
-                anim.SetBool("FallRoll", false);
-                stopMovement = false;
+                //anim.SetBool("FallRoll", false);
+                //stopMovement = false;
             }
         }
         fallTimer = false;
