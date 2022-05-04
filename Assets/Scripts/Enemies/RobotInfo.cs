@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class RobotInfo : MonoBehaviour
 {
     [SerializeField] float health = 100;
     [SerializeField] Image healthImg;
-    [SerializeField] bool isDummy;
     [SerializeField] GameObject door;
+    [SerializeField] NavMeshAgent agent;
     public float GetHealth { get => health; }
     public Shooter shooterScript;
     ThirdPersonPlayer player;
@@ -24,19 +25,17 @@ public class RobotInfo : MonoBehaviour
     {
         health -= amt;
         healthImg.fillAmount = health/100;
+
         if(health <= 0)
-        {
-            if (isDummy)
-            {
-                StartCoroutine(StartLoadToPortalRoom());                               
-            }
-            Destroy(gameObject);
+        {          
+            StartCoroutine(StartLoadToPortalRoom());                         
         }
     }
 
     IEnumerator StartLoadToPortalRoom()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(1);
+        Destroy(gameObject);
+        SceneManager.LoadScene(1);        
     }
 }
