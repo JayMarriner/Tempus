@@ -20,7 +20,6 @@ public class DeadScreen : MonoBehaviour
 
     public void RestartLevel()
     {
-        print(":)");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
