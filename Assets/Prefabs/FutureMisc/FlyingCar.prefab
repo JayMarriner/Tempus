@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4158992a4b604445ad1d00331eb3ab1, type: 2}
+  - {fileID: 2100000, guid: 598af603525bffb47a6133b0016de45a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,7 +383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cbd2830f65255444b4410ac7a49b2cc, type: 2}
+  - {fileID: 2100000, guid: 602a9c3db828b1347ae8cd7c1ee098b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -464,7 +464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80bdbbd73a7eb344ab82a3cfc5c15ef1, type: 2}
+  - {fileID: 2100000, guid: 602a9c3db828b1347ae8cd7c1ee098b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -751,7 +751,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cbd2830f65255444b4410ac7a49b2cc, type: 2}
+  - {fileID: 2100000, guid: 602a9c3db828b1347ae8cd7c1ee098b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -863,6 +863,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3185312904311387500}
+  - component: {fileID: 1512991535849364350}
+  - component: {fileID: 2293698669506308885}
   m_Layer: 0
   m_Name: FlyingCar
   m_TagString: Untagged
@@ -885,6 +887,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1512991535849364350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502437906114775705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.823726, y: 5.9333563, z: 6.2408857}
+  m_Center: {x: 0.5322623, y: -0.2602167, z: -0.059140325}
+--- !u!208 &2293698669506308885
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502437906114775705}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5503792255800561665
 GameObject:
   m_ObjectHideFlags: 0

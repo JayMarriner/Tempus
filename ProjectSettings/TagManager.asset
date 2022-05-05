@@ -12,6 +12,7 @@ TagManager:
   - Spawner
   - Arrow
   - Boss
+  - Damage
   layers:
   - Default
   - TransparentFX
