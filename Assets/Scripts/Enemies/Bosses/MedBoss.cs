@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MedBoss : MonoBehaviour
 {
     [Range(1,100)]
-    [SerializeField] int lockOnDist;
+    [SerializeField] protected int lockOnDist;
     [Range(1,50)]
     [SerializeField] protected int attackDist;
     [SerializeField] protected Animator anim;
@@ -55,7 +55,10 @@ public class MedBoss : MonoBehaviour
             canvasBoss.SetActive(false);
         }
 
-        anim.SetBool("Walk", !nav.isStopped);
+        if (nav.remainingDistance < 1f)
+            anim.SetBool("Walk", false);
+        else
+            anim.SetBool("Walk", true);
     }
 
     protected virtual void Attack()

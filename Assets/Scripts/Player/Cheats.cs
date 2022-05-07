@@ -26,6 +26,7 @@ public class Cheats : MonoBehaviour
     {
         playerScript.jetScript.HasJetPack = true;
         playerScript.jetScript.isEquipped = true;
+        playerScript.jetScript.currFuel = 200000f;  
     }
 
     public void BigBang()

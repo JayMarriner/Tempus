@@ -116,10 +116,10 @@ public class ThirdPersonPlayer : MonoBehaviour
 
 
         //Testing the health bar with damage. (didnt add this to input manager because it is a temp measure).
-        if (Input.GetKeyDown(KeyCode.T))
+        /*if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(1f);
-        }
+        }*/
         
         //Set shoulder camera to higher priority.
         if (Input.GetKeyDown(inputManager.aim))
@@ -384,6 +384,11 @@ public class ThirdPersonPlayer : MonoBehaviour
         currHealth -= amt;
         anim.SetTrigger("Hurt");
         //StartCoroutine(StopMoveX(1f));
+    }
+
+    public void ResetHealth()
+    {
+        currHealth = maxHealth;
     }
 
     IEnumerator FallRollTimer()

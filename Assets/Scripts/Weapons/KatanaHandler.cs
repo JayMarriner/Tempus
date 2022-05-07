@@ -12,11 +12,13 @@ public class KatanaHandler : MonoBehaviour
     [SerializeField] float powerMultiplier;
     [SerializeField] Animator playerAnimator;
     [SerializeField] TrailRenderer trail;
+    [SerializeField] GameObject powerUpObj;
     InputManager inputManager;
     Quaternion initRot;
 
     public bool swinging;
     public bool slashing;
+    public bool powerUpActive;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +72,7 @@ public class KatanaHandler : MonoBehaviour
 
     public void SpecialAttack()
     {
-        playerAnimator.SetBool("Special", true);
+        playerAnimator.SetTrigger("Special");
         StartCoroutine(SpecialCoolDown());
     }
 
@@ -104,13 +106,10 @@ public class KatanaHandler : MonoBehaviour
     {
         trail.enabled = true;
         trail.Clear();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>().stopMovement = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>().specialHit = true;
-        yield return new WaitForSeconds(2f);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>().stopMovement = false;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>().specialHit = false;
-        playerAnimator.SetBool("Special", false);
-        yield return new WaitForSeconds(0.25f);
-        trail.enabled = false;
+        powerUpActive = true;
+        powerUpObj.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        powerUpActive = false;
+        powerUpObj.SetActive(false);
     }
 }

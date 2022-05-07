@@ -3,52 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class JapanHandler : MonoBehaviour
+public class JapanHandler : MedBoss
 {
     [Header("Controls")]
-    [SerializeField] float lockDistance;
-    [SerializeField] float attackDistance;
     [SerializeField] GameObject eyes;
-    Animator anim;
-    NavMeshAgent agent;
-    Vector3 playerPos;
+    [SerializeField] GameObject RockRain;
 
-    // Start is called before the first frame update
-    void Start()
+    bool attackCool;
+    bool firstPath;
+    int attackNum;
+
+    protected override void Attack()
     {
-        anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float playerDist = Vector3.Distance(transform.position,playerPos);
-
-        if (playerDist < lockDistance)
+        //playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //float playerDist = Vector3.Distance(transform.position,playerPos);
+        if (!attackCool  && playerDistance < attackDist)
         {
-            if(playerDist < attackDistance)
+            attackCool = true;
+            if (attackNum == 0)
             {
-                StartCoroutine(Attack());
+                StartCoroutine(Attack1());
             }
             else
             {
-                WalkToward();
+                StartCoroutine(RainAttack());
             }
         }
+        if (playerDistance < lockOnDist)
+            WalkToward();
     }
 
-    IEnumerator Attack()
+    IEnumerator Attack1()
     {
+        attackNum = 1;
+        print("yes1");
         eyes.SetActive(true);
         anim.SetTrigger("Attack");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         eyes.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        attackCool = false;
+    }
+
+    IEnumerator RainAttack()
+    {
+        attackNum = 0;
+        print("yes2");
+        anim.SetTrigger("RainAttack");
+        yield return new WaitForSeconds(0.5f);
+        GameObject newRock = Instantiate(RockRain);
+        newRock.transform.position = player.transform.position;
+        yield return new WaitForSeconds(3f);
+        attackCool = false;
     }
 
     void WalkToward()
     {
-        agent.SetDestination(playerPos);
+        if (nav.remainingDistance < 1f && firstPath)
+        {
+            nav.SetDestination(gameObject.transform.position);
+            anim.SetBool("Walk", false);
+        }
+        else
+        {
+            anim.SetBool("Walk", true);
+            nav.SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
+        }
     }
 }
