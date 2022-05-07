@@ -61,6 +61,11 @@ public class KatanaHit : MonoBehaviour
                 if (uiFill.fillAmount >= 0.1f)
                     uiText.text = "PRESS 'F'";
             }
+
+            if(other.tag == "Bamboo")
+            {
+                other.GetComponent<CutBamboo>().Cut();
+            }
         }
     }
 }

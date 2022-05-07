@@ -17,7 +17,7 @@ public class EnemyHandler : MonoBehaviour
     bool playerLock;
     public bool playerInArea;
 
-    private void Start()
+    protected virtual void Start()
     {
         minPos = new Vector3(gameObject.transform.position.x - dist, gameObject.transform.position.y, gameObject.transform.position.z - dist);
         maxPos = new Vector3(gameObject.transform.position.x + dist, gameObject.transform.position.y, gameObject.transform.position.z + dist);
@@ -26,7 +26,7 @@ public class EnemyHandler : MonoBehaviour
         RandomWalk();
     }
 
-    private void Update()
+    protected void Update()
     {
         if(player ==null)
             player = GameObject.FindGameObjectWithTag("Player");
@@ -59,7 +59,7 @@ public class EnemyHandler : MonoBehaviour
         playerLock = true;
     }
 
-    void RandomWalk()
+    protected void RandomWalk()
     {
         agent.SetDestination(new Vector3(Random.Range(minPos.x, maxPos.x), gameObject.transform.position.y, Random.Range(minPos.z, maxPos.z)));
     }

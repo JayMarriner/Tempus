@@ -56,6 +56,12 @@ public class ThirdPersonPlayer : MonoBehaviour
     public bool shoulderView;
     public bool stopCamMove;
 
+    [Header("Jump shoes")]
+    [SerializeField] GameObject leftShoe;
+    [SerializeField] GameObject rightShoe;
+    public bool jumpShoes;
+    bool dblJumpUsed;
+
     private void Start()
     {
         //Input
@@ -72,6 +78,14 @@ public class ThirdPersonPlayer : MonoBehaviour
 
         //Jetpack
         jetScript = jetpack.GetComponent<Jetpack>();
+
+        //Set shoes
+        if (GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<GameManager>().jumpBoots)
+        {
+            leftShoe.SetActive(true);
+            rightShoe.SetActive(true);
+            jumpShoes = true;
+        }
     }
 
     void Update()
@@ -274,6 +288,7 @@ public class ThirdPersonPlayer : MonoBehaviour
 
     void Jump()
     {
+
         if (Input.GetKey(inputManager.useJetpack) && jetpack.activeSelf && jetScript.currFuel > 0 && !jumpBuff)
         {
             usingJetpack = true;
@@ -283,8 +298,12 @@ public class ThirdPersonPlayer : MonoBehaviour
         //Apply jump.
         else if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumpBuff)
         {
-            if (running)
+            if (running && !jumpShoes)
                 vertVel.y = jumpForce;
+            else if (running && jumpShoes)
+                vertVel.y = jumpForce * 1.5f;
+            else if (!running && jumpShoes)
+                vertVel.y = jumpForce * 1.25f;
             else
                 vertVel.y = jumpForce * 0.8f;
             anim.SetTrigger("Jump");
@@ -293,9 +312,19 @@ public class ThirdPersonPlayer : MonoBehaviour
         //Else apply gravity.
         else 
         {
+            /*if(!dblJumpUsed && jumpShoes && Input.GetKey(KeyCode.Space) && !IsGrounded())
+            {
+                vertVel.y = jumpForce * 0.8f;
+                //anim.SetTrigger("DblJump");
+                dblJumpUsed = true;
+
+            }*/
             if (!usingJetpack)
                 vertVel.y -= gravity * Time.deltaTime;
         }
+
+        if (jumpShoes && IsGrounded())
+            dblJumpUsed = false;
 
         if (anim.GetBool("Floating") && IsGrounded())
         {
@@ -354,7 +383,7 @@ public class ThirdPersonPlayer : MonoBehaviour
         //Deduct the health based on a random value.
         currHealth -= amt;
         anim.SetTrigger("Hurt");
-        StartCoroutine(StopMoveX(1f));
+        //StartCoroutine(StopMoveX(1f));
     }
 
     IEnumerator FallRollTimer()
@@ -402,6 +431,13 @@ public class ThirdPersonPlayer : MonoBehaviour
             }
         }
         fallTimer = false;
+    }
+
+    public void PutOnShoes()
+    {
+        leftShoe.SetActive(true);
+        rightShoe.SetActive(true);
+        jumpShoes = true;
     }
 
     IEnumerator StopMoveX(float time)

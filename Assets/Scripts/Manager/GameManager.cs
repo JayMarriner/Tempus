@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public bool[] weaponsActive = { true, false, false, false, false };
     public bool[] portalsActive = { true, false, false };
+    public bool jumpBoots;
 
     static GameManager _instance;
     public static GameManager instance

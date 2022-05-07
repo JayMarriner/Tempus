@@ -1,0 +1,905 @@
+fileFormatVersion: 2
+guid: e603088b26f10904f9216ff57a58f16c
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: Sheath
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sheath
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 38
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: mixamorig:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mixamorig:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: JapanGirl(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube
+      parentName: JapanGirl(Clone)
+      position: {x: -0, y: 0.06757763, z: 0.3459506}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 33.60046, y: 20.830437, z: 8.664291}
+    - name: Cube.001
+      parentName: JapanGirl(Clone)
+      position: {x: -0, y: 0.06757763, z: -0.345951}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 33.60046, y: 20.830437, z: 8.664291}
+    - name: Cube.002
+      parentName: JapanGirl(Clone)
+      position: {x: 0.20613067, y: 0.877305, z: 0.3459506}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: -12.379907, y: -12.379907, z: -76.37359}
+    - name: Cube.003
+      parentName: JapanGirl(Clone)
+      position: {x: 0.05841533, y: 1.7397424, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.006
+      parentName: JapanGirl(Clone)
+      position: {x: 0.28298256, y: 3.24228, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 30.533453, y: 30.533453, z: 35.158676}
+    - name: NurbsPath
+      parentName: JapanGirl(Clone)
+      position: {x: 0.046279684, y: 3.691074, z: -0.08048161}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0587902, y: 1.0701414, z: -0.3266207}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: BezierCircle.001
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0651953, y: 1.0701414, z: -0.24464719}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.001
+      parentName: JapanGirl(Clone)
+      position: {x: 0.20653339, y: 3.7164743, z: 0.014283459}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.002
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0719004, y: 1.0701414, z: -0.15880491}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.002
+      parentName: JapanGirl(Clone)
+      position: {x: 0.059389364, y: 3.7000728, z: 0.08733421}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.003
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0777223, y: 1.0701414, z: -0.08427917}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.003
+      parentName: JapanGirl(Clone)
+      position: {x: 0.06521107, y: 3.691074, z: 0.16185984}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.004
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0522292, y: 1.0701414, z: -0.41062558}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.004
+      parentName: JapanGirl(Clone)
+      position: {x: 0.03971733, y: 3.691074, z: -0.16448633}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.005
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0742629, y: 1.0701414, z: -0.12855595}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.005
+      parentName: JapanGirl(Clone)
+      position: {x: 0.061752092, y: 3.691074, z: 0.117583156}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.006
+      parentName: JapanGirl(Clone)
+      position: {x: 3.055507, y: 1.0701414, z: -0.368662}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.006
+      parentName: JapanGirl(Clone)
+      position: {x: 0.042995468, y: 3.691074, z: -0.122523054}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.007
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0622234, y: 1.0701414, z: -0.28268453}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.007
+      parentName: JapanGirl(Clone)
+      position: {x: 0.049711958, y: 3.694127, z: -0.036545575}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.008
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0684383, y: 1.0701414, z: -0.2031289}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.008
+      parentName: JapanGirl(Clone)
+      position: {x: 0.07394023, y: 3.7070806, z: 0.043010052}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.009
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0777223, y: 1.0701414, z: -0.08427917}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.009
+      parentName: JapanGirl(Clone)
+      position: {x: 0.09289874, y: 3.6802995, z: 0.0084810555}
+      rotation: {x: -0.2732752, y: 0.0290383, z: 0.9561148, w: -0.10159715}
+      scale: {x: 13.674811, y: 12.155568, z: 13.829407}
+    - name: BezierCircle.010
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0808554, y: 1.0701414, z: -0.044170365}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.010
+      parentName: JapanGirl(Clone)
+      position: {x: 0.06834401, y: 3.691074, z: 0.20196857}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.011
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0496712, y: 1.0701414, z: -0.44336855}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.011
+      parentName: JapanGirl(Clone)
+      position: {x: 0.04545535, y: 3.6613023, z: -0.09103473}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.012
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0777223, y: 1.0701414, z: -0.08427917}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.012
+      parentName: JapanGirl(Clone)
+      position: {x: -0.26377806, y: 3.6802995, z: 0.06197226}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.013
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0777223, y: 1.0701414, z: -0.08427917}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.013
+      parentName: JapanGirl(Clone)
+      position: {x: 0.13980211, y: 3.6835191, z: 0.0047160834}
+      rotation: {x: 0.88526577, y: -0.094068766, z: -0.45292315, w: 0.048128}
+      scale: {x: 13.75149, y: 12.159095, z: 13.769821}
+    - name: BezierCircle.015
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0777223, y: 1.0701414, z: -0.08427917}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: BezierCircle.014
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0777223, y: 1.0701414, z: -0.08427917}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.014
+      parentName: JapanGirl(Clone)
+      position: {x: 0.13980211, y: 3.6802995, z: 0.0047160834}
+      rotation: {x: 0.88526577, y: -0.094068766, z: -0.45292315, w: 0.048128}
+      scale: {x: 13.75149, y: 12.159095, z: 13.769821}
+    - name: BezierCircle.016
+      parentName: JapanGirl(Clone)
+      position: {x: 3.1734352, y: 1.0701414, z: -0.09196186}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.016
+      parentName: JapanGirl(Clone)
+      position: {x: -0.16806482, y: 3.6802995, z: 0.05428943}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.017
+      parentName: JapanGirl(Clone)
+      position: {x: 3.2615716, y: 1.0701414, z: -0.09903647}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.017
+      parentName: JapanGirl(Clone)
+      position: {x: -0.081663825, y: 3.6802995, z: 0.025009751}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.018
+      parentName: JapanGirl(Clone)
+      position: {x: 3.356805, y: 1.0701414, z: -0.106680766}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.018
+      parentName: JapanGirl(Clone)
+      position: {x: 0.0135704465, y: 3.6802995, z: 0.017365515}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.019
+      parentName: JapanGirl(Clone)
+      position: {x: 3.4272094, y: 1.0701414, z: -0.11233207}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.019
+      parentName: JapanGirl(Clone)
+      position: {x: 0.07544507, y: 3.6802995, z: 0.012398869}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.020
+      parentName: JapanGirl(Clone)
+      position: {x: 3.5077846, y: 1.0701414, z: -0.11879975}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.015
+      parentName: JapanGirl(Clone)
+      position: {x: 0.16080798, y: 3.6642852, z: 0.0672178}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.021
+      parentName: JapanGirl(Clone)
+      position: {x: 3.626516, y: 1.0701414, z: -0.12833008}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.020
+      parentName: JapanGirl(Clone)
+      position: {x: 0.26880768, y: 3.6520653, z: 0.09333867}
+      rotation: {x: 0.30672827, y: -0.03259329, z: 0.9459135, w: -0.10051411}
+      scale: {x: 13.696137, y: 12.156199, z: 13.827958}
+    - name: BezierCircle.022
+      parentName: JapanGirl(Clone)
+      position: {x: 3.723879, y: 1.0701414, z: -0.13614519}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.021
+      parentName: JapanGirl(Clone)
+      position: {x: 0.23544551, y: 3.6642852, z: 0.061226632}
+      rotation: {x: 0.67064345, y: -0.096642084, z: 0.7345718, w: -0.036082763}
+      scale: {x: 13.742657, y: 12.157187, z: 13.599659}
+    - name: BezierCircle.023
+      parentName: JapanGirl(Clone)
+      position: {x: 3.626516, y: 1.0701414, z: -0.12833008}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.022
+      parentName: JapanGirl(Clone)
+      position: {x: 0.27953878, y: 3.6642852, z: 0.057687283}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.024
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0496712, y: 1.0701414, z: -0.44336855}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.023
+      parentName: JapanGirl(Clone)
+      position: {x: 0.037159696, y: 3.691074, z: -0.19722949}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.025
+      parentName: JapanGirl(Clone)
+      position: {x: 3.626516, y: 1.0701414, z: -0.12833008}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.024
+      parentName: JapanGirl(Clone)
+      position: {x: 0.34516287, y: 3.7278295, z: 0.08952165}
+      rotation: {x: 0.45834687, y: -0.048704416, z: 0.8824697, w: -0.09377226}
+      scale: {x: 13.752038, y: 12.1592, z: 13.766038}
+    - name: BezierCircle.035
+      parentName: JapanGirl(Clone)
+      position: {x: 3.0668483, y: 1.0567368, z: -0.42380258}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.034
+      parentName: JapanGirl(Clone)
+      position: {x: 3.1625621, y: 1.0567368, z: -0.4314853}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.033
+      parentName: JapanGirl(Clone)
+      position: {x: 3.2506976, y: 1.0567368, z: -0.43855974}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.032
+      parentName: JapanGirl(Clone)
+      position: {x: 3.3459315, y: 1.0567368, z: -0.4462042}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.031
+      parentName: JapanGirl(Clone)
+      position: {x: 3.416336, y: 1.0567368, z: -0.45185545}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.030
+      parentName: JapanGirl(Clone)
+      position: {x: 3.4969113, y: 1.0567368, z: -0.45832306}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.029
+      parentName: JapanGirl(Clone)
+      position: {x: 3.6156425, y: 1.0567368, z: -0.46785346}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.028
+      parentName: JapanGirl(Clone)
+      position: {x: 3.7130046, y: 1.0567368, z: -0.47566855}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.027
+      parentName: JapanGirl(Clone)
+      position: {x: 3.6156425, y: 1.0567368, z: -0.46785346}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: BezierCircle.026
+      parentName: JapanGirl(Clone)
+      position: {x: 3.6156425, y: 1.0567368, z: -0.46785346}
+      rotation: {x: 0.47985953, y: 0.51936, z: -0.51935995, w: 0.4798596}
+      scale: {x: -19.618446, y: -19.35729, z: -17.180502}
+    - name: NurbsPath.034
+      parentName: JapanGirl(Clone)
+      position: {x: -0.25580236, y: 3.6668956, z: -0.036255658}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.033
+      parentName: JapanGirl(Clone)
+      position: {x: 0.162678, y: 3.6508815, z: -0.10917285}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.032
+      parentName: JapanGirl(Clone)
+      position: {x: -0.1600891, y: 3.6668956, z: -0.04393856}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.031
+      parentName: JapanGirl(Clone)
+      position: {x: -0.070219144, y: 3.6668956, z: -0.028807668}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.030
+      parentName: JapanGirl(Clone)
+      position: {x: 0.02501537, y: 3.6668956, z: -0.03645213}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.029
+      parentName: JapanGirl(Clone)
+      position: {x: 0.08688988, y: 3.6668956, z: -0.04141864}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.028
+      parentName: JapanGirl(Clone)
+      position: {x: 0.26527587, y: 3.6386602, z: -0.14107673}
+      rotation: {x: -0.024557155, y: -0.23110165, z: 0.10277332, w: 0.9671746}
+      scale: {x: -13.646055, y: -12.154845, z: -13.826553}
+    - name: NurbsPath.027
+      parentName: JapanGirl(Clone)
+      position: {x: 0.23731494, y: 3.6508815, z: -0.11516404}
+      rotation: {x: -0.093492106, y: -0.6105643, z: 0.043599013, w: 0.78521943}
+      scale: {x: -13.753409, y: -12.157917, z: -13.629001}
+    - name: NurbsPath.026
+      parentName: JapanGirl(Clone)
+      position: {x: 0.28140894, y: 3.6508815, z: -0.11870323}
+      rotation: {x: -0.055036303, y: -0.5179355, z: 0.0902015, w: 0.84886837}
+      scale: {x: -13.751451, y: -12.160269, z: -13.719287}
+    - name: NurbsPath.025
+      parentName: JapanGirl(Clone)
+      position: {x: 0.3402119, y: 3.6508815, z: -0.13977058}
+      rotation: {x: -0.041150197, y: -0.38725546, z: 0.09732433, w: 0.9158973}
+      scale: {x: -13.735895, y: -12.157799, z: -13.806903}
+    - name: BezierCircle.036
+      parentName: JapanGirl(Clone)
+      position: {x: 3.2034633, y: 1.0567368, z: -2.4839401}
+      rotation: {x: 0.29741788, y: 0.6415159, z: -0.64151585, w: 0.29741794}
+      scale: {x: -19.655863, y: -19.612574, z: -17.180502}
+    - name: NurbsPath.035
+      parentName: JapanGirl(Clone)
+      position: {x: 0.05799688, y: 3.6508815, z: -0.09563893}
+      rotation: {x: -0.07561158, y: -0.34027177, z: 0.07017507, w: 0.93465155}
+      scale: {x: -13.7313, y: -12.157092, z: -13.8062725}
+    - name: BezierCircle.037
+      parentName: JapanGirl(Clone)
+      position: {x: 3.2034633, y: 1.0567368, z: -2.4839401}
+      rotation: {x: 0.29741788, y: 0.6415159, z: -0.64151585, w: 0.29741794}
+      scale: {x: -19.655863, y: -19.612574, z: -17.180502}
+    - name: NurbsPath.036
+      parentName: JapanGirl(Clone)
+      position: {x: 0.052113667, y: 3.6508815, z: 0.110093296}
+      rotation: {x: 0.4129905, y: -0.080915146, z: 0.90487415, w: -0.06398751}
+      scale: {x: 13.7616005, y: 12.157857, z: 13.777366}
+    - name: BezierCircle.038
+      parentName: JapanGirl(Clone)
+      position: {x: 3.070764, y: 1.1103783, z: -0.17335005}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.037
+      parentName: JapanGirl(Clone)
+      position: {x: 0.07040788, y: 3.720976, z: 0.051977776}
+      rotation: {x: 0.03927947, y: -0.004173812, z: 0.9936257, w: -0.105582945}
+      scale: {x: 13.547968, y: 12.152858, z: 13.795665}
+    - name: BezierCircle.039
+      parentName: JapanGirl(Clone)
+      position: {x: 3.2154164, y: 1.0567368, z: -2.3309221}
+      rotation: {x: 0.29741788, y: 0.6415159, z: -0.64151585, w: 0.29741794}
+      scale: {x: -19.655863, y: -19.612574, z: -17.180502}
+    - name: NurbsPath.038
+      parentName: JapanGirl(Clone)
+      position: {x: 0.020719308, y: 3.6133785, z: -0.29178947}
+      rotation: {x: -0.07561158, y: -0.3402718, z: 0.07017527, w: 0.93465155}
+      scale: {x: -13.731297, y: -12.157095, z: -13.806278}
+    - name: BezierCircle.040
+      parentName: JapanGirl(Clone)
+      position: {x: 3.1008172, y: 1.0930209, z: -0.11753257}
+      rotation: {x: -0.47985953, y: 0.51936, z: 0.51935995, w: 0.4798596}
+      scale: {x: 19.618446, y: 19.35729, z: 17.180502}
+    - name: NurbsPath.039
+      parentName: JapanGirl(Clone)
+      position: {x: -0.24068305, y: 3.7031791, z: 0.0287188}
+      rotation: {x: 0.583328, y: -0.061985187, z: 0.80533415, w: -0.08557531}
+      scale: {x: 13.74055, y: 12.161234, z: 13.664635}
+    - name: BezierCircle.041
+      parentName: JapanGirl(Clone)
+      position: {x: 3.2154164, y: 1.0567368, z: -2.3309221}
+      rotation: {x: 0.29741788, y: 0.6415159, z: -0.64151585, w: 0.29741794}
+      scale: {x: -19.655863, y: -19.612574, z: -17.180502}
+    - name: NurbsPath.040
+      parentName: JapanGirl(Clone)
+      position: {x: 0.06406702, y: 3.6508815, z: 0.26311147}
+      rotation: {x: 0.4129905, y: -0.080915146, z: 0.90487415, w: -0.06398751}
+      scale: {x: 13.7616005, y: 12.157857, z: 13.777366}
+    - name: NurbsPath.041
+      parentName: JapanGirl(Clone)
+      position: {x: 0.020719308, y: 3.6133785, z: -0.29178947}
+      rotation: {x: -0.07561158, y: -0.3402718, z: 0.07017527, w: 0.93465155}
+      scale: {x: -13.731297, y: -12.157095, z: -13.806278}
+    - name: Cube.007
+      parentName: JapanGirl(Clone)
+      position: {x: 0.28819686, y: 2.5820546, z: -1.114035}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 13.938101, y: 82.86719, z: 13.938101}
+    - name: Cube.008
+      parentName: JapanGirl(Clone)
+      position: {x: 0.28819686, y: 2.5820546, z: 1.11404}
+      rotation: {x: 0.000000030908623, y: 0.7071068, z: -0.7071067, w: -0.000000030908616}
+      scale: {x: -13.938101, y: -82.86719, z: -13.938101}
+    - name: Cube.005
+      parentName: JapanGirl(Clone)
+      position: {x: -0, y: 0.06757763, z: -0.345951}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 33.60046, y: 20.830437, z: 8.664291}
+    - name: Cube.004
+      parentName: JapanGirl(Clone)
+      position: {x: -0, y: 0.06757763, z: 0.3459506}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 33.60046, y: 20.830437, z: 8.664291}
+    - name: mixamorig:Hips
+      parentName: JapanGirl(Clone)
+      position: {x: 0.0000092950295, y: 1.6334286, z: 0.054315157}
+      rotation: {x: 0.000023658627, y: 0.7071064, z: -0.000023658602, w: 0.7071072}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:Spine
+      parentName: mixamorig:Hips
+      position: {x: 0.023015575, y: 0.22596496, z: -1.1630236e-17}
+      rotation: {x: -0.000033402903, y: -0.0000019888662, z: -0.050730992, w: 0.99871236}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:Spine1
+      parentName: mixamorig:Spine
+      position: {x: 3.5527136e-17, y: 0.26498958, z: 0}
+      rotation: {x: -4.135903e-25, y: 3.3087225e-24, z: -6.938894e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:Spine2
+      parentName: mixamorig:Spine1
+      position: {x: 3.5527136e-17, y: 0.30284542, z: 0}
+      rotation: {x: -4.135903e-25, y: 3.3087225e-24, z: -6.938894e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightShoulder
+      parentName: mixamorig:Spine2
+      position: {x: 0.0054027294, y: 0.29318076, z: 0.14714445}
+      rotation: {x: 0.8054725, y: 0.010420746, z: -0.014524975, w: 0.59236354}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightArm
+      parentName: mixamorig:RightShoulder
+      position: {x: -4.4408918e-17, y: 0.30881444, z: 5.684342e-16}
+      rotation: {x: -0.15073389, y: 0.005305023, z: 0.017273251, w: 0.9884092}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightForeArm
+      parentName: mixamorig:RightArm
+      position: {x: -8.881784e-18, y: 0.6668234, z: 0}
+      rotation: {x: 0.000000054371974, y: -0.0004174564, z: 0.00000025424106, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightHand
+      parentName: mixamorig:RightForeArm
+      position: {x: -5.3290704e-17, y: 0.5056107, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftShoulder
+      parentName: mixamorig:Spine2
+      position: {x: 0.0042891065, y: 0.29306737, z: -0.14714445}
+      rotation: {x: -0.01147523, y: -0.59208876, z: 0.80574954, w: -0.008187688}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftArm
+      parentName: mixamorig:LeftShoulder
+      position: {x: 4.440892e-18, y: 0.30881447, z: 0}
+      rotation: {x: -0.15113878, y: -0.006572369, z: -0.013254452, w: 0.98840183}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftForeArm
+      parentName: mixamorig:LeftArm
+      position: {x: -3.5527136e-17, y: 0.6669919, z: 0}
+      rotation: {x: -0.00000046478561, y: 0.0004319678, z: -0.00000012593172, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftHand
+      parentName: mixamorig:LeftForeArm
+      position: {x: -0, y: 0.5055644, z: 5.684342e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:Neck
+      parentName: mixamorig:Spine2
+      position: {x: -0.000000011770868, y: 0.3407008, z: -5.4210107e-22}
+      rotation: {x: 0.00000000425128, y: -0.00000003534473, z: 0.050730515, w: 0.99871236}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:Head
+      parentName: mixamorig:Neck
+      position: {x: -0.007790775, y: 0.16509552, z: 3.936738e-18}
+      rotation: {x: 1.479114e-31, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:HeadTop_End
+      parentName: mixamorig:Head
+      position: {x: -0.044853095, y: 0.9504907, z: 2.2665245e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightUpLeg
+      parentName: mixamorig:Hips
+      position: {x: 0.056442544, y: -0.12546127, z: 0.22838001}
+      rotation: {x: -0.0037822318, y: 0.036669716, z: 0.99906814, w: 0.02244713}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightLeg
+      parentName: mixamorig:RightUpLeg
+      position: {x: 1.7763568e-17, y: 0.7075659, z: 0}
+      rotation: {x: -0.07782578, y: -0.0022554318, z: 0.08289634, w: 0.9935121}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightFoot
+      parentName: mixamorig:RightLeg
+      position: {x: 3.5527136e-17, y: 0.6304186, z: 0}
+      rotation: {x: 0.47720522, y: 0.5262837, z: -0.3576903, w: 0.60610104}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightToeBase
+      parentName: mixamorig:RightFoot
+      position: {x: -0, y: 0.4308303, z: -3.5527136e-17}
+      rotation: {x: 0.225943, y: -0.22238271, z: 0.05306171, w: 0.94693196}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:RightToe_End
+      parentName: mixamorig:RightToeBase
+      position: {x: 1.0658141e-16, y: 0.19132671, z: 1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftUpLeg
+      parentName: mixamorig:Hips
+      position: {x: 0.06292211, y: -0.12546127, z: -0.22838001}
+      rotation: {x: 0.0040249107, y: -0.03658215, z: 0.9987659, w: 0.033349734}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftLeg
+      parentName: mixamorig:LeftUpLeg
+      position: {x: -0, y: 0.70924324, z: 0}
+      rotation: {x: 0.07771135, y: 0.0037664564, z: 0.10098209, w: 0.99184144}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftFoot
+      parentName: mixamorig:LeftLeg
+      position: {x: -0, y: 0.6308102, z: 0}
+      rotation: {x: 0.363658, y: 0.5999719, z: -0.48218834, w: 0.5246723}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftToeBase
+      parentName: mixamorig:LeftFoot
+      position: {x: -7.105427e-17, y: 0.43595427, z: -1.7763568e-17}
+      rotation: {x: 0.22368531, y: 0.22786714, z: -0.053873345, w: 0.94611794}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamorig:LeftToe_End
+      parentName: mixamorig:LeftToeBase
+      position: {x: -3.5527136e-17, y: 0.19181925, z: -1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 68a9db25d861e954d8a53d3af5f87b26, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

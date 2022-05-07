@@ -10,7 +10,8 @@ public class Collectable : MonoBehaviour
         bow,
         katana,
         portal,
-        scifi
+        scifi,
+        jumpBoots
     };
 
     [Header("Collectable")]
@@ -32,6 +33,7 @@ public class Collectable : MonoBehaviour
     [SerializeField] GameObject portal;
     [SerializeField] GameObject scifi;
     [SerializeField] GameObject jetpack;
+    [SerializeField] GameObject jumpBoots;
 
     GameManager manager;
     
@@ -58,6 +60,9 @@ public class Collectable : MonoBehaviour
                 break;
             case ObjType.jetpack:
                 jetpack.SetActive(true);
+                break;
+            case ObjType.jumpBoots:
+                jumpBoots.SetActive(true);
                 break;
         }
     }
@@ -118,6 +123,9 @@ public class Collectable : MonoBehaviour
                         break;
                     case ObjType.scifi:
                         manager.weaponsActive[3] = true;
+                        break;
+                    case ObjType.jumpBoots:
+                        other.GetComponent<JumpBoots>().ShoesOn();
                         break;
                 }
             }

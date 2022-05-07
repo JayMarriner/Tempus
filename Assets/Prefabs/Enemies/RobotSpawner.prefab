@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 80928815eb4394243b42656cbd968483, type: 3}
+  - {fileID: 2100000, guid: a7b724fc111bc6a45b36b9fa7183c788, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -223,7 +223,6 @@ MonoBehaviour:
   healthImg: {fileID: 2589886642017443573}
   isDummy: 0
   isBoss: 0
-  isSpawner: 1
   door: {fileID: 0}
   shooterScript: {fileID: 0}
 --- !u!82 &7740788885894986071
@@ -442,7 +441,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 80928815eb4394243b42656cbd968483, type: 3}
+  - {fileID: 2100000, guid: 1b84134a4554b4a4bb8ab11c4a796ac9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -524,7 +523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b84134a4554b4a4bb8ab11c4a796ac9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

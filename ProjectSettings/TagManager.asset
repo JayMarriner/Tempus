@@ -13,6 +13,9 @@ TagManager:
   - Arrow
   - Boss
   - Damage
+  - CineShoulder
+  - CineMain
+  - Bamboo
   layers:
   - Default
   - TransparentFX
