@@ -36,6 +36,7 @@ public class WeaponHandler : MonoBehaviour
 
     private void Update()
     {
+        /*
         //Quick switches.
         if (Input.GetKeyDown(inputManager.weaponSwitch1))
             EnableWeapon(0);
@@ -47,7 +48,7 @@ public class WeaponHandler : MonoBehaviour
             EnableWeapon(3);
         else if (Input.GetKeyDown(inputManager.weaponSwitch5))
             EnableWeapon(4);
-
+        */
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {

@@ -53,9 +53,11 @@ public class PlayerUIHandler : MonoBehaviour
 
     void WeaponUI()
     {
+        /*
         //IF the weapon wheel button is pressed then...
         if (Input.GetKeyDown(inputManager.weaponWheelToggle))
         {
+
             //Set UI object to active.
             WeaponWheel.SetActive(true);
             //Stop camera movement, this is because the mouse is active and would induce sickness.
@@ -81,6 +83,7 @@ public class PlayerUIHandler : MonoBehaviour
             //Set the cursor to invisble.
             Cursor.visible = false;
         }
+        */
     }
 
 
