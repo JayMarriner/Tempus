@@ -10,6 +10,7 @@ public class DeadScreen : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        StartCoroutine(ForceRestart());
     }
 
     // Update is called once per frame
@@ -22,5 +23,12 @@ public class DeadScreen : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+    }
+
+    IEnumerator ForceRestart()
+    {
+        yield return new WaitForSeconds(5f);
+        if(gameObject.activeSelf)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

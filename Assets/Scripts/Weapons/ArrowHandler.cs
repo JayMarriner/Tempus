@@ -32,6 +32,8 @@ public class ArrowHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!isFired)
+            return;
         if(other.tag == "Enemy")
         {
             other.GetComponent<RobotInfo>().LowerHealth(25);

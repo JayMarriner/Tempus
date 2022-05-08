@@ -21,6 +21,7 @@ public class MedBoss : MonoBehaviour
     protected float playerDistance;
     bool filled;
     public bool isHitting;
+    protected bool mallusStopper;
 
     [SerializeField] bool isFuture;
 
@@ -59,6 +60,12 @@ public class MedBoss : MonoBehaviour
             anim.SetBool("Walk", false);
         else
             anim.SetBool("Walk", true);
+
+        if (mallusStopper)
+        {
+            anim.SetBool("Walk", false);
+            nav.SetDestination(transform.position);
+        }
     }
 
     protected virtual void Attack()

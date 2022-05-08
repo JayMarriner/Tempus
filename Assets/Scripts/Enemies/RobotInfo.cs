@@ -8,8 +8,10 @@ public class RobotInfo : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] Image healthImg;
     [SerializeField] bool isDummy;
+    [SerializeField] bool isMallus;
     [SerializeField] bool isBoss;
     [SerializeField] GameObject door;
+    [SerializeField] GameObject[] otherTargets;
     public float GetHealth { get => health; }
     public Shooter shooterScript;
     ThirdPersonPlayer player;
@@ -19,6 +21,10 @@ public class RobotInfo : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonPlayer>();
+        if (isMallus)
+        {
+            health = 150;
+        }
     }
     private void Update()
     {
@@ -28,7 +34,10 @@ public class RobotInfo : MonoBehaviour
     public void LowerHealth(int amt)
     {
         health -= amt;
-        healthImg.fillAmount = health/100;
+        if (!isMallus)
+            healthImg.fillAmount = health / 100;
+        else
+            healthImg.fillAmount = health / 150;
         if (isBoss)
         {
             GetComponentInChildren<Animator>().SetTrigger("Hit");
@@ -42,9 +51,17 @@ public class RobotInfo : MonoBehaviour
                     StartCoroutine(BossDeath());
                 return;
             }
-            if (isDummy)
+            if (isDummy || isMallus)
             {
                 door.SetActive(true);
+            }
+
+            if (isMallus)
+            {
+                for(int x  = 0; x < otherTargets.Length; x++)
+                {
+                    Destroy(otherTargets[x]);
+                }
             }
 
             Destroy(gameObject);

@@ -14,6 +14,6 @@ public class MenuButtonPress : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("PortalRoom");
+        SceneManager.LoadScene("Intro");
     }
 }

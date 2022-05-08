@@ -13,6 +13,8 @@ public class NPCText : MonoBehaviour
     [SerializeField] AudioClip[] audio;
     [SerializeField] Animator anim;
     [SerializeField] TalkerHandler talkerHandler;
+    [SerializeField] bool isItemTrigger;
+    [SerializeField] GameObject item;
 
     AudioSource source;
 
@@ -42,5 +44,7 @@ public class NPCText : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         talkerHandler.EndConversation();
+        if(isItemTrigger)
+            item.SetActive(true);
     }
 }

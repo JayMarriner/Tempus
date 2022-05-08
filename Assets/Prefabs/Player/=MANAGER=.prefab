@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7776714677162156267}
-  - component: {fileID: 8926160399094068509}
   m_Layer: 0
   m_Name: PERSIST
   m_TagString: Untagged
@@ -31,19 +30,6 @@ Transform:
   m_Father: {fileID: 8497363883268437091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8926160399094068509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6322182692183827325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404856a09d3ea82479c3015a82971bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponsActive: 0100000000
 --- !u!1 &8497363883268437089
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,6 +41,7 @@ GameObject:
   - component: {fileID: 8497363883268437091}
   - component: {fileID: 8497363883268437090}
   - component: {fileID: 8497363883268437093}
+  - component: {fileID: 6417995914879870391}
   m_Layer: 0
   m_Name: =MANAGER=
   m_TagString: Manager
@@ -117,3 +104,19 @@ MonoBehaviour:
   portalMats:
   - {fileID: 2100000, guid: 02d95eb6746c44c4ca51aca9eb2a928e, type: 2}
   - {fileID: 2100000, guid: 4b3a35b19167aa74b95090f85018cb29, type: 2}
+  cntrl: 0
+--- !u!114 &6417995914879870391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497363883268437089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404856a09d3ea82479c3015a82971bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponsActive: 0100000000
+  portalsActive: 010000
+  jumpBoots: 0

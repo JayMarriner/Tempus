@@ -17,7 +17,7 @@ public class Spaceship : MonoBehaviour
     void Update()
     {
         if (inArea && Input.GetKey(KeyCode.E))
-            SceneManager.LoadScene("MedievalLevel");
+            SceneManager.LoadScene("MallusFight");
         canvas.SetActive(inArea);
     }
 
