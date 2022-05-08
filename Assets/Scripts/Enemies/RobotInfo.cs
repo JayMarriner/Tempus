@@ -44,9 +44,7 @@ public class RobotInfo : MonoBehaviour
             }
             if (isDummy)
             {
-                Destroy(door);
-                //Camera stuff can go here.
-                //player.stopMovement = true;
+                door.SetActive(true);
             }
 
             Destroy(gameObject);

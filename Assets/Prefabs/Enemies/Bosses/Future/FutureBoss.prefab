@@ -7272,6 +7272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3907197223723047516}
     m_Modifications:
+    - target: {fileID: 5792339247097086846, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_text
+      value: Static
+      objectReference: {fileID: 0}
     - target: {fileID: 7088843170078103587, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7356,10 +7360,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8034051194744939119, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 176.938
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034051194744939119, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 181.4712
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034051194744939119, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 403
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034051194744939119, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -69
+      objectReference: {fileID: 0}
     - target: {fileID: 8119091159745307665, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
       propertyPath: m_Name
       value: BossCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8119091159745307665, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599880422662024346, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c00752b384cafbd42a4b7b2d2d880181, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb4f57ad57993484a905dee629f76b59, type: 3}
 --- !u!1 &1852855144225231488 stripped
